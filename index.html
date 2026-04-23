@@ -113,12 +113,19 @@
             color: transparent;
         }
         .hero-gradient-heading {
-            background: linear-gradient(90deg, #4c6700, #c7ff3c, #4c6700);
+            background: linear-gradient(
+                90deg,
+                #4c6700 0%,
+                #87bf1d 28%,
+                #c7ff3c 50%,
+                #87bf1d 72%,
+                #4c6700 100%
+            );
             background-size: 200% 100%;
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            animation: hero-gradient-slide 3s linear infinite;
+            animation: hero-gradient-slide 6s linear infinite;
         }
 
         @keyframes hero-gradient-slide {
@@ -126,7 +133,7 @@
                 background-position: 0% 50%;
             }
             100% {
-                background-position: 100% 50%;
+                background-position: -200% 50%;
             }
         }
         /* Explicitly forcing 5px where Tailwind defaults might apply */
@@ -213,9 +220,9 @@
         }
         .desktop-nav-indicator {
             position: absolute;
-            bottom: -2px;
+            bottom: -3px;
             left: 0;
-            height: 3px;
+            height: 2px;
             width: 0;
             background: #c7ff3c;
             transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1), width 260ms cubic-bezier(0.22, 1, 0.36, 1), opacity 180ms ease;
@@ -276,32 +283,32 @@
 <body class="bg-background text-on-surface font-body-md overflow-x-hidden" id="top">
 <!-- TopNavBar -->
 <header class="fixed top-0 w-full z-50 border-b bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md border-gray-200 dark:border-zinc-800">
-<nav class="relative flex justify-center md:justify-between items-center max-w-7xl mx-auto px-5 md:px-16 h-20">
+<nav class="relative flex justify-center lg:justify-between items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 h-[76px]">
 <div class="flex items-center" style="">
 <a aria-label="Go to top of page" href="#top">
-<img alt="Kinetic logo" class="h-12 w-auto" src="logo2.svg">
+<img alt="Kinetic logo" class="h-12 w-auto" src="logo3.svg">
 </a>
 </div>
-<div class="hidden md:flex items-center space-x-12 desktop-nav-links" id="desktop-nav-links">
-<a class="text-black dark:text-white desktop-nav-link whitespace-nowrap font-['Montserrat'] font-bold tracking-tight uppercase" href="#" data-nav-item="true" data-nav-active="true" style="">Work</a>
-<a class="text-gray-500 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors desktop-nav-link whitespace-nowrap font-['Montserrat'] font-bold tracking-tight uppercase" href="case-studies.html" data-nav-item="true" style="">Case Studies</a>
-<a class="text-gray-500 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors desktop-nav-link whitespace-nowrap font-['Montserrat'] font-bold tracking-tight uppercase" href="#tech-services" data-nav-item="true" style="">Tech Services</a>
-<a class="text-gray-500 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors desktop-nav-link whitespace-nowrap font-['Montserrat'] font-bold tracking-tight uppercase" href="#process" data-nav-item="true" style="">Process</a>
-<a class="text-gray-500 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors desktop-nav-link whitespace-nowrap font-['Montserrat'] font-bold tracking-tight uppercase" href="#pricing" data-nav-item="true" style="">Pricing</a>
+<div class="hidden lg:flex items-center gap-6 xl:gap-8 desktop-nav-links" id="desktop-nav-links">
+<a class="text-black dark:text-white desktop-nav-link whitespace-nowrap font-['Montserrat'] text-[13px] xl:text-[14px] font-bold tracking-tight uppercase" href="#" data-nav-item="true" data-nav-active="true" style="">Work</a>
+<a class="text-gray-500 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors desktop-nav-link whitespace-nowrap font-['Montserrat'] text-[13px] xl:text-[14px] font-bold tracking-tight uppercase" href="case-studies.html" data-nav-item="true" style="">Case Studies</a>
+<a class="text-gray-500 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors desktop-nav-link whitespace-nowrap font-['Montserrat'] text-[13px] xl:text-[14px] font-bold tracking-tight uppercase" href="#tech-services" data-nav-item="true" style="">Tech Services</a>
+<a class="text-gray-500 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors desktop-nav-link whitespace-nowrap font-['Montserrat'] text-[13px] xl:text-[14px] font-bold tracking-tight uppercase" href="#process" data-nav-item="true" style="">Process</a>
+<a class="text-gray-500 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors desktop-nav-link whitespace-nowrap font-['Montserrat'] text-[13px] xl:text-[14px] font-bold tracking-tight uppercase" href="#pricing" data-nav-item="true" style="">Pricing</a>
 <span aria-hidden="true" class="desktop-nav-indicator" id="desktop-nav-indicator"></span>
 </div>
-<div class="absolute right-5 md:right-0 md:static flex items-center gap-4">
-<a class="hidden md:inline-flex bg-primary-container text-black px-8 py-3 text-label-bold font-label-bold uppercase transition-all duration-200 rounded-5px border border-black items-center justify-center hover:bg-lime-400" href="#start-project-form" style="">Get a Free Quote</a>
-<a class="hidden md:inline-flex items-center gap-2 text-black font-['Montserrat'] font-bold tracking-tight hover:text-lime-500 transition-colors" href="tel:+14056874981">
-<span class="material-symbols-outlined text-[22px]" style="">call</span>
+<div class="absolute right-4 sm:right-6 lg:right-0 lg:static flex items-center gap-3 xl:gap-4">
+<a class="hidden lg:inline-flex bg-primary-container text-black px-5 xl:px-7 py-3 text-[13px] font-label-bold uppercase transition-all duration-200 rounded-5px border border-black items-center justify-center whitespace-nowrap hover:bg-lime-400" href="#start-project-form" style="">Get a Free Quote</a>
+<a class="hidden xl:inline-flex items-center gap-2 text-black font-['Montserrat'] text-[13px] font-bold tracking-tight hover:text-lime-500 transition-colors whitespace-nowrap" href="tel:+14056874981">
+<span class="material-symbols-outlined text-[20px]" style="">call</span>
 <span>+1(405)687-4981</span>
 </a>
-<button aria-controls="mobile-nav-menu" aria-expanded="false" aria-label="Toggle navigation menu" class="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-5px border border-black bg-white text-black" id="mobile-menu-toggle" type="button">
+<button aria-controls="mobile-nav-menu" aria-expanded="false" aria-label="Toggle navigation menu" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-5px border border-black bg-white text-black" id="mobile-menu-toggle" type="button">
 <span class="material-symbols-outlined text-[28px]" id="mobile-menu-icon" style="">menu</span>
 </button>
 </div>
 </nav>
-<div class="hidden md:hidden border-t border-gray-200 bg-white px-5 py-6" id="mobile-nav-menu">
+<div class="hidden lg:hidden border-t border-gray-200 bg-white px-5 py-6" id="mobile-nav-menu">
 <div class="flex flex-col gap-4 items-center text-center">
 <a class="text-black font-['Montserrat'] font-bold tracking-tight uppercase text-center" href="#">Work</a>
 <a class="text-gray-700 hover:text-black transition-colors font-['Montserrat'] font-bold tracking-tight uppercase text-center" href="case-studies.html">Case Studies</a>
@@ -327,7 +334,7 @@
 </div>
 <div class="relative z-10 text-center max-w-6xl">
 <span class="inline-block px-4 py-1 bg-black text-white text-[12px] font-label-bold tracking-widest uppercase mb-8 rounded-5px" style="">CREATIVE DESIGN AGENCY</span>
-<h1 class="font-headline-xl mb-6 flex flex-col leading-none text-[40px] sm:text-[56px] md:text-[80px] lg:text-[120px]" style=""><span class="font-black hero-gradient-heading" style="">BOLD WEBSITES.</span>
+<h1 class="font-headline-xl mb-6 flex flex-col leading-none text-[40px] sm:text-[56px] md:text-[80px] lg:text-[120px]" style=""><span class="font-black hero-gradient-heading inline-block pt-[22px] pb-[22px] text-[112px] tracking-[0.4px] leading-[106px]" style="">BOLD WEBSITES.</span>
 <span class="hero-text-stroke font-black" style="">STRONG PERFORMANCE.</span></h1>
 <p class="font-body-lg text-secondary mx-auto mb-12 text-[21px] md:text-[21px] max-w-4xl" style="">
                 High-end digital experiences for brands that demand precision. We merge aggressive aesthetics with mathematical discipline.
@@ -629,7 +636,7 @@
 <div class="max-w-7xl mx-auto px-5 sm:px-8 md:px-16 grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-8">
 <div class="flex items-center justify-center md:justify-start" style="">
 <a aria-label="Go to top of page" href="#top">
-<img alt="Kinetic logo" class="h-12 w-auto" src="logo2.svg">
+<img alt="Kinetic logo" class="h-12 w-auto" src="logo3.svg">
 </a>
 </div>
 <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
@@ -715,7 +722,7 @@
             });
 
             window.addEventListener("resize", function () {
-                if (window.innerWidth >= 768) {
+                if (window.innerWidth >= 1024) {
                     setMenuState(false);
                 }
             });
@@ -735,7 +742,7 @@
             }
 
             var activeItem = linksContainer.querySelector("[data-nav-active='true']") || navItems[0];
-            var desktopMediaQuery = window.matchMedia("(min-width: 768px)");
+            var desktopMediaQuery = window.matchMedia("(min-width: 1024px)");
 
             function moveIndicatorTo(target) {
                 if (!target || !desktopMediaQuery.matches) {

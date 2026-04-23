@@ -1,6 +1,12 @@
 ## Changelog
 
 ### 2026-04-23
+- Tightened navbar spacing across `index.html`, `case-studies.html`, `privacy-policy.html`, `standard-terms.html`, and `sitemap.html` to better match the provided reference while keeping the existing labels.
+- Shifted desktop navigation visibility from `md` to `lg` so intermediate widths collapse earlier and `Case Studies` stays readable instead of feeling cramped.
+- Reduced desktop CTA/header footprint and refined the homepage nav indicator proportions for a lighter, cleaner top bar.
+- Added `Process` into the shared secondary-page headers/mobile menus so the main navigation label set stays consistent across the site.
+- Replaced all header/footer logo references across the website pages (`index.html`, `case-studies.html`, `privacy-policy.html`, `standard-terms.html`, `sitemap.html`) from `logo2.svg` to `logo3.svg`.
+- Updated both visible logo positions (top navigation and footer) on every page to keep branding consistent site-wide.
 - Updated the hero supporting paragraph in `code.html` from `text-2xl md:text-3xl` to `text-sm md:text-sm` to persist the browser-approved `font-size: 14px` change.
 - Updated `.hero-text-stroke` in `code.html` to `font-size: 40px` so `STRONG PERFORMANCE.` matches the browser-approved hero sizing.
 - Adjusted desktop navbar indicator spacing in `code.html` so the green underline sits directly beneath nav text instead of floating too low.
@@ -80,3 +86,6 @@
 - Updated `All Projects` in `code.html` to link directly to `case-studies.html`.
 - Updated the two `Case Study` buttons in `code.html` to deep-link into project sections on `case-studies.html` (`#neon-asset-management`, `#chrome-wearables`).
 - Added `Case Studies` to the main navbar in `code.html` for both desktop and mobile navigation, linking to `case-studies.html`.
+- Updated the hero `BOLD WEBSITES.` gradient animation in `index.html` to a smoother left-to-right flow with expanded color stops, a wider gradient band, and gentler easing.
+- Reversed the hero `BOLD WEBSITES.` gradient animation direction in `index.html` so it now flows right-to-left.
+- Tuned the hero `BOLD WEBSITES.` gradient animation in `index.html` for a seamless nonstop loop by switching to a linear cycle, normalized background sizing, and a full off-canvas travel range.
