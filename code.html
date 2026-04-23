@@ -99,7 +99,9 @@
 
         #tech-services,
         #process,
-        #pricing {
+        #pricing,
+        #start-project-form,
+        #faq {
             scroll-margin-top: 96px;
         }
 
@@ -109,6 +111,24 @@
         .hero-text-stroke {
             -webkit-text-stroke: 1px black;
             color: transparent;
+            font-size: 40px;
+        }
+        .hero-gradient-heading {
+            background: linear-gradient(90deg, #4c6700, #c7ff3c, #4c6700);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: hero-gradient-slide 3s linear infinite;
+        }
+
+        @keyframes hero-gradient-slide {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
         }
         /* Explicitly forcing 5px where Tailwind defaults might apply */
         .rounded-5px { border-radius: 5px !important; }
@@ -121,22 +141,28 @@
         details summary::-webkit-details-marker {
             display: none;
         }
+        #faq-accordion details .faq-content {
+            overflow: hidden;
+        }
+        #faq-accordion details .faq-content-inner {
+            opacity: 0;
+            transform: translateY(-4px);
+            transition: opacity 360ms ease, transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: opacity, transform;
+        }
+        #faq-accordion details[open] .faq-content-inner {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* Expertise card hover animation */
         .expertise-card {
             transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
             transform: translateY(0);
-            perspective: 1000px;
-            transform-style: preserve-3d;
         }
         .expertise-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
-        }
-        .expertise-card .tilt-inner {
-            transform-style: preserve-3d;
-            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-            will-change: transform;
         }
 
         /* Case study button hover animation */
@@ -155,23 +181,141 @@
         .case-study-link:hover .case-study-arrow {
             transform: translateX(6px);
         }
+
+        /* Pricing card hover animation */
+        .pricing-card {
+            transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
+            transform: translateY(0);
+        }
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 38px rgba(0, 0, 0, 0.14);
+            border-color: #1b1c1c;
+        }
+
+        /* Selected works media hover scale (inside frame only) */
+        .selected-work-frame .selected-work-media {
+            transition: transform 700ms ease, filter 700ms ease;
+            transform: scale(1);
+            will-change: transform;
+        }
+        .selected-work-frame:hover .selected-work-media {
+            transform: scale(1.035);
+        }
+
+        /* Desktop nav shared indicator */
+        .desktop-nav-links {
+            position: relative;
+            padding-bottom: 0;
+        }
+        .desktop-nav-link {
+            position: relative;
+            padding-bottom: 0;
+        }
+        .desktop-nav-indicator {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            height: 3px;
+            width: 0;
+            background: #c7ff3c;
+            transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1), width 260ms cubic-bezier(0.22, 1, 0.36, 1), opacity 180ms ease;
+            will-change: transform, width;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Typewriter pill effect for the "Remarkable" badge */
+        .remarkable-typewriter {
+            display: inline-block;
+            min-width: 11ch;
+            min-height: 1.3em;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid #c7ff3c;
+            vertical-align: baseline;
+            animation: remarkable-caret-blink 0.9s steps(1, end) infinite;
+        }
+
+        @keyframes remarkable-caret-blink {
+            0%, 49% { border-right-color: #c7ff3c; }
+            50%, 100% { border-right-color: transparent; }
+        }
+
+        /* Scroll slide-in reveal animation */
+        .scroll-slide-in {
+            transform: translateY(50px);
+            opacity: 0;
+            transition-property: transform, opacity;
+            transition-duration: 500ms;
+            transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition-delay: 0ms;
+            will-change: transform, opacity;
+        }
+
+        .scroll-slide-in.scroll-slide-in-visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .scroll-slide-in,
+            .scroll-slide-in.scroll-slide-in-visible {
+                transform: none;
+                opacity: 1;
+                transition: none;
+            }
+
+            .pricing-card,
+            .pricing-card:hover {
+                transform: none;
+                transition: none;
+            }
+        }
     </style>
 </head>
-<body class="bg-background text-on-surface font-body-md">
+<body class="bg-background text-on-surface font-body-md" id="top">
 <!-- TopNavBar -->
 <header class="fixed top-0 w-full z-50 border-b bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md border-gray-200 dark:border-zinc-800">
-<nav class="flex justify-between items-center max-w-7xl mx-auto px-8 md:px-16 h-20">
-<div class="text-2xl font-black tracking-tighter text-black dark:text-white font-['Montserrat']" style="">KINETIC</div>
-<div class="hidden md:flex items-center space-x-12">
-<a class="text-black dark:text-white border-b-2 border-lime-400 pb-1 font-['Montserrat'] font-bold tracking-tight uppercase" href="#" style="">Work</a>
-<a class="text-gray-500 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors font-['Montserrat'] font-bold tracking-tight uppercase" href="#tech-services" style="">Tech Services</a>
-<a class="text-gray-500 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors font-['Montserrat'] font-bold tracking-tight uppercase" href="#process" style="">Process</a>
-<a class="text-gray-500 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors font-['Montserrat'] font-bold tracking-tight uppercase" href="#pricing" style="">Pricing</a>
+<nav class="relative flex justify-center md:justify-between items-center max-w-7xl mx-auto px-5 md:px-16 h-20">
+<div class="flex items-center" style="">
+<a aria-label="Go to top of page" href="#top">
+<img alt="Kinetic logo" class="h-12 w-auto" src="logo2.svg">
+</a>
 </div>
-<div class="flex items-center gap-4">
-<button class="bg-primary-container text-black px-8 py-3 text-label-bold font-label-bold uppercase hover:bg-lime-400 transition-all duration-200 scale-95 active:scale-90 rounded-5px border border-black" style="">Start Project</button>
+<div class="hidden md:flex items-center space-x-12 desktop-nav-links" id="desktop-nav-links">
+<a class="text-black dark:text-white desktop-nav-link whitespace-nowrap font-['Montserrat'] font-bold tracking-tight uppercase" href="#" data-nav-item="true" data-nav-active="true" style="">Work</a>
+<a class="text-gray-500 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors desktop-nav-link whitespace-nowrap font-['Montserrat'] font-bold tracking-tight uppercase" href="case-studies.html" data-nav-item="true" style="">Case Studies</a>
+<a class="text-gray-500 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors desktop-nav-link whitespace-nowrap font-['Montserrat'] font-bold tracking-tight uppercase" href="#tech-services" data-nav-item="true" style="">Tech Services</a>
+<a class="text-gray-500 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors desktop-nav-link whitespace-nowrap font-['Montserrat'] font-bold tracking-tight uppercase" href="#process" data-nav-item="true" style="">Process</a>
+<a class="text-gray-500 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors desktop-nav-link whitespace-nowrap font-['Montserrat'] font-bold tracking-tight uppercase" href="#pricing" data-nav-item="true" style="">Pricing</a>
+<span aria-hidden="true" class="desktop-nav-indicator" id="desktop-nav-indicator"></span>
+</div>
+<div class="absolute right-5 md:right-0 md:static flex items-center gap-4">
+<a class="hidden md:inline-flex bg-primary-container text-black px-8 py-3 text-label-bold font-label-bold uppercase transition-all duration-200 rounded-5px border border-black items-center justify-center hover:bg-lime-400" href="#start-project-form" style="">Get a Free Quote</a>
+<a class="hidden md:inline-flex items-center gap-2 text-black font-['Montserrat'] font-bold tracking-tight hover:text-lime-500 transition-colors" href="tel:+14056874981">
+<span class="material-symbols-outlined text-[22px]" style="">call</span>
+<span>+1(405)687-4981</span>
+</a>
+<button aria-controls="mobile-nav-menu" aria-expanded="false" aria-label="Toggle navigation menu" class="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-5px border border-black bg-white text-black" id="mobile-menu-toggle" type="button">
+<span class="material-symbols-outlined text-[28px]" id="mobile-menu-icon" style="">menu</span>
+</button>
 </div>
 </nav>
+<div class="hidden md:hidden border-t border-gray-200 bg-white px-5 py-6" id="mobile-nav-menu">
+<div class="flex flex-col gap-4 items-center text-center">
+<a class="text-black font-['Montserrat'] font-bold tracking-tight uppercase text-center" href="#">Work</a>
+<a class="text-gray-700 hover:text-black transition-colors font-['Montserrat'] font-bold tracking-tight uppercase text-center" href="case-studies.html">Case Studies</a>
+<a class="text-gray-700 hover:text-black transition-colors font-['Montserrat'] font-bold tracking-tight uppercase text-center" href="#tech-services">Tech Services</a>
+<a class="text-gray-700 hover:text-black transition-colors font-['Montserrat'] font-bold tracking-tight uppercase text-center" href="#process">Process</a>
+<a class="text-gray-700 hover:text-black transition-colors font-['Montserrat'] font-bold tracking-tight uppercase text-center" href="#pricing">Pricing</a>
+<a class="mt-2 bg-primary-container text-black px-6 py-3 text-label-bold font-label-bold uppercase transition-all duration-200 rounded-5px border border-black inline-flex items-center justify-center w-full max-w-[360px] hover:bg-lime-400" href="#start-project-form">Get a Free Quote</a>
+<a class="inline-flex items-center justify-center gap-2 text-black font-['Montserrat'] font-bold tracking-tight hover:text-lime-500 transition-colors text-center" href="tel:+14056874981">
+<span class="material-symbols-outlined text-[20px]" style="">call</span>
+<span>+1(405)687-4981</span>
+</a>
+</div>
+</div>
 </header>
 <main class="pt-20">
 <!-- Hero Section -->
@@ -184,15 +328,15 @@
 </div>
 <div class="relative z-10 text-center max-w-6xl">
 <span class="inline-block px-4 py-1 bg-black text-white text-[12px] font-label-bold tracking-widest uppercase mb-8 rounded-5px" style="">CREATIVE DESIGN AGENCY</span>
-<h1 class="font-headline-xl mb-6 flex flex-col leading-none text-[80px] md:text-[120px]" style=""><span class="font-black" style=""><span class="bg-primary-container px-4 py-1 rounded-5px" style="">BOLD</span> WEBSITES.</span>
+<h1 class="font-headline-xl mb-6 flex flex-col leading-none text-[80px] md:text-[120px]" style=""><span class="font-black hero-gradient-heading" style="">BOLD WEBSITES.</span>
 <span class="hero-text-stroke font-black" style="">STRONG PERFORMANCE.</span></h1>
-<p class="font-body-lg text-secondary mx-auto mb-12 text-2xl md:text-3xl max-w-4xl" style="">
+<p class="font-body-lg text-secondary mx-auto mb-12 text-[21px] md:text-[21px] max-w-4xl" style="">
                 High-end digital experiences for brands that demand precision. We merge aggressive aesthetics with mathematical discipline.
             </p>
 <div class="flex flex-col md:flex-row gap-6 justify-center">
-<button class="case-study-link bg-black text-white px-10 py-5 font-label-bold text-label-bold uppercase flex items-center gap-3 hover:bg-primary-container hover:text-black transition-colors duration-300 rounded-5px" style="">
+<a class="case-study-link bg-black text-white px-10 py-5 font-label-bold text-label-bold uppercase flex items-center gap-3 hover:bg-primary-container hover:text-black transition-colors duration-300 rounded-5px" href="#start-project-form" style="">
 <span class="case-study-text">Get Proposal</span><span class="case-study-arrow material-symbols-outlined" style="">arrow_forward</span>
-</button>
+</a>
 </div>
 </div>
 </section>
@@ -203,42 +347,60 @@
 <h2 class="font-headline-lg text-headline-lg mb-4" style="">OUR EXPERTISE</h2>
 <div class="w-24 h-2 bg-primary-container rounded-5px"></div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
 <!-- High Performance Development -->
-<div class="expertise-card md:col-span-2 bg-white p-12 border border-outline-variant hover:border-black transition-all group rounded-5px">
-<div class="flex justify-between items-start mb-16">
+<div class="expertise-card md:col-span-2 xl:col-span-2 bg-white p-6 sm:p-8 lg:p-12 border border-outline-variant hover:border-black transition-all group rounded-5px">
+<div class="flex justify-between items-start mb-10 sm:mb-12 lg:mb-16 gap-4">
 <span class="material-symbols-outlined text-5xl text-primary-container" style="font-variation-settings: &quot;FILL&quot; 1;">terminal</span>
 <span class="text-secondary font-label-bold text-label-bold" style="">01</span>
 </div>
-<h3 class="font-headline-md text-headline-md mb-4" style=""><h3 class="font-headline-md text-headline-md mb-4 text-black uppercase cursor-text" spellcheck="false" data-stitch-added-classes="cursor-text" style="--tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; --tw-text-opacity: 1; color: rgb(0, 0, 0); outline: none !important;">Web DESIGN &amp; DEVELOPMENT</h3></h3>
+<h3 class="font-headline-md text-[clamp(1.75rem,3.5vw,2rem)] leading-[1.15] mb-4 text-black uppercase break-words" style="">WEB DESIGN &amp; DEVELOPMENT</h3>
 <p class="text-body-md text-secondary max-w-md" style="">We build lighting-fast web applications using the latest tech stacks. Speed isn't a feature; it's our foundation.</p>
 </div>
 <!-- Visual Identity -->
-<div class="expertise-card bg-black p-12 text-white border border-black hover:border-primary-container transition-all group rounded-5px">
-<div class="flex justify-between items-start mb-16">
+<div class="expertise-card bg-black p-6 sm:p-8 lg:p-12 text-white border border-black hover:border-primary-container transition-all group rounded-5px">
+<div class="flex justify-between items-start mb-10 sm:mb-12 lg:mb-16 gap-4">
 <span class="material-symbols-outlined text-5xl text-primary-container" style="">branding_watermark</span>
 <span class="text-zinc-500 font-label-bold text-label-bold" style="">02</span>
 </div>
-<h3 class="font-headline-md text-headline-md mb-4" style="">BRAND IDENTITY</h3>
+<h3 class="font-headline-md text-[clamp(1.75rem,3.5vw,2rem)] leading-[1.15] mb-4 uppercase break-words" style="">BRAND IDENTITY</h3>
 <p class="text-zinc-400" style="">Aggressive branding strategies for startups that want to disrupt the status quo with precision design.</p>
 </div>
 <!-- Digital Editorial -->
-<div class="expertise-card bg-white p-12 border border-outline-variant hover:border-black transition-all group rounded-5px">
-<div class="flex justify-between items-start mb-16">
+<div class="expertise-card bg-white p-6 sm:p-8 lg:p-12 border border-outline-variant hover:border-black transition-all group rounded-5px">
+<div class="flex justify-between items-start mb-10 sm:mb-12 lg:mb-16 gap-4">
 <span class="material-symbols-outlined text-5xl text-primary-container" style="">auto_stories</span>
 <span class="text-secondary font-label-bold text-label-bold" style="">03</span>
 </div>
-<h3 class="font-headline-md text-headline-md mb-4" style="">SEO&nbsp;</h3>
+<h3 class="font-headline-md text-[clamp(1.75rem,3.5vw,2rem)] leading-[1.15] mb-4 uppercase break-words" style="">SEO</h3>
 <p class="text-body-md text-secondary" style="">Bringing the sophistication of high-end print design to the digital landscape with structured layouts.</p>
 </div>
 <!-- UI/UX Systems -->
-<div class="expertise-card md:col-span-2 bg-primary-container p-12 border border-outline-variant group rounded-5px">
-<div class="flex justify-between items-start mb-16">
+<div class="expertise-card md:col-span-2 xl:col-span-2 bg-primary-container p-6 sm:p-8 lg:p-12 border border-outline-variant group rounded-5px">
+<div class="flex justify-between items-start mb-10 sm:mb-12 lg:mb-16 gap-4">
 <span class="material-symbols-outlined text-5xl text-black" style="">grid_view</span>
 <span class="text-black font-label-bold text-label-bold" style="">04</span>
 </div>
-<h3 class="font-headline-md text-headline-md mb-4 text-black uppercase" style="">ECCOMERCE DEVELOPMENT</h3>
+<h3 class="font-headline-md text-[clamp(1.75rem,3.5vw,2rem)] leading-[1.15] mb-4 text-black uppercase break-words" style="">ECOMMERCE DEVELOPMENT</h3>
 <p class="text-black/80 max-w-md" style="">Bulletproof UI components that maintain brand integrity across all platforms and devices.</p>
+</div>
+<!-- Web Hosting and Maintenance -->
+<div class="expertise-card md:col-span-2 xl:col-span-2 bg-black p-6 sm:p-8 lg:p-12 text-white border border-black hover:border-primary-container transition-all group rounded-5px">
+<div class="flex justify-between items-start mb-10 sm:mb-12 lg:mb-16 gap-4">
+<span class="material-symbols-outlined text-5xl text-primary-container" style="">dns</span>
+<span class="text-zinc-500 font-label-bold text-label-bold" style="">05</span>
+</div>
+<h3 class="font-headline-md text-[clamp(1.75rem,3.5vw,2rem)] leading-[1.15] mb-4 uppercase break-words" style="">WEB HOSTING AND MAINTENANCE</h3>
+<p class="text-zinc-400" style="">Reliable hosting, ongoing updates, security monitoring, and continuous support to keep your website fast and stable.</p>
+</div>
+<!-- Conversion Copywriting -->
+<div class="expertise-card bg-white p-6 sm:p-8 lg:p-12 border border-outline-variant hover:border-black transition-all group rounded-5px">
+<div class="flex justify-between items-start mb-10 sm:mb-12 lg:mb-16 gap-4">
+<span class="material-symbols-outlined text-5xl text-primary-container" style="">edit_note</span>
+<span class="text-secondary font-label-bold text-label-bold" style="">06</span>
+</div>
+<h3 class="font-headline-md text-[clamp(1.75rem,3.5vw,2rem)] leading-[1.15] mb-4 text-black uppercase break-words" style="">CONVERSION COPYWRITING</h3>
+<p class="text-body-md text-secondary" style="">Persuasive messaging crafted to turn visitors into qualified leads and customers across every key page.</p>
 </div>
 </div>
 </div>
@@ -251,23 +413,26 @@
 <h2 class="font-headline-lg text-headline-lg uppercase" style="">Selected Works</h2>
 <p class="text-secondary font-body-md mt-2" style="">Precision projects for global clients.</p>
 </div>
-<button class="hidden md:flex items-center gap-2 font-label-bold text-label-bold uppercase border-b-2 border-black pb-1 hover:text-primary transition-colors" style="">
+<a class="hidden md:flex items-center gap-2 font-label-bold text-label-bold uppercase border-b-2 border-black pb-1 hover:text-primary transition-colors" href="case-studies.html" style="">
                     All Projects <span class="material-symbols-outlined" style="">north_east</span>
-</button>
+</a>
 </div>
 <div class="space-y-32">
 <!-- Project 1 -->
 <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
 <div class="md:col-span-7">
-<div class="relative overflow-hidden aspect-[16/10] rounded-5px">
-<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 cursor-pointer" data-alt="Close-up of a futuristic high-tech interface on a tablet with vibrant neon green elements and dark data visualization graphs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT4zX-lFRPzTK9m2C8vx7ZcEQLQQjhxoR4ksvUt4ppMpwlaNH0gMVy8kgkqOZ_H1b3t0sGwERK8l5e1rnwI5Kojy2aw3r9Th7H9GIYIpzJYpegzXvCl4o7khr_j5h1JQY4AOvWY2RMR3x83rbPhvT74RUYymnelOIjmUvnNPxPyUDJ3BwqQbLvtwHzJB7TIQMxVYPB0TglES3kH_OaHaJQ4DvY1pNg_d774CWoOD7VgpftpTbc9smY0xLAhw8zu21uhQUmoAwtDLeW" style="">
+<div class="selected-work-frame relative overflow-hidden aspect-[16/10] rounded-5px">
+<video aria-label="Close-up of a futuristic high-tech interface on a tablet with vibrant neon green elements and dark data visualization graphs" autoplay class="selected-work-media w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 cursor-pointer" loop muted playsinline>
+<source src="hf_20260423_153703_f0fb84da-a604-44ee-b816-cee06b2a65bb.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
 </div>
 </div>
 <div class="md:col-span-5 md:pl-12">
 <span class="text-label-bold font-label-bold text-primary mb-4 block uppercase" style="">Fintech / Web Platform</span>
 <h3 class="font-headline-lg text-headline-lg mb-6 leading-tight" style="">NEON ASSET MANAGEMENT</h3>
 <p class="font-body-md text-secondary mb-8" style="">A complete digital overhaul of a leading asset management platform, focusing on real-time data clarity and brutalist visual hierarchy.</p>
-<a class="case-study-link inline-flex items-center gap-3 font-label-bold text-label-bold uppercase bg-black text-white px-8 py-4 hover:bg-primary-container hover:text-black transition-colors rounded-5px" href="#" style="">
+<a class="case-study-link inline-flex items-center gap-3 font-label-bold text-label-bold uppercase bg-black text-white px-8 py-4 hover:bg-primary-container hover:text-black transition-colors rounded-5px" href="case-studies.html#neon-asset-management" style="">
 <span class="case-study-text">Case Study</span><span class="case-study-arrow material-symbols-outlined" style="">arrow_forward</span>
 </a>
 </div>
@@ -278,13 +443,13 @@
 <span class="text-label-bold font-label-bold text-primary mb-4 block uppercase" style="">Fashion / E-Commerce</span>
 <h3 class="font-headline-lg text-headline-lg mb-6 leading-tight" style="">CHROME WEARABLES</h3>
 <p class="font-body-md text-secondary mb-8" style="">High-contrast e-commerce experience for a luxury tech-wear brand. We implemented custom 3D rendering and fluid transitions.</p>
-<a class="case-study-link inline-flex items-center gap-3 font-label-bold text-label-bold uppercase bg-black text-white px-8 py-4 hover:bg-primary-container hover:text-black transition-colors rounded-5px" href="#" style="">
+<a class="case-study-link inline-flex items-center gap-3 font-label-bold text-label-bold uppercase bg-black text-white px-8 py-4 hover:bg-primary-container hover:text-black transition-colors rounded-5px" href="case-studies.html#chrome-wearables" style="">
 <span class="case-study-text">Case Study</span><span class="case-study-arrow material-symbols-outlined" style="">arrow_forward</span>
 </a>
 </div>
 <div class="md:col-span-7 order-1 md:order-2">
-<div class="relative overflow-hidden aspect-[16/10] rounded-5px">
-<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 cursor-pointer" data-alt="A modern minimalist architectural structure with clean sharp angles and glass reflecting a bright blue sky, high-end design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiKYZKBMCRM_YxccwO5mIIILULxinRX8rCXr7JPHKljGCNjC6dRN1JmrpZUXP02j3bn2_LA9xwM1EBKugOkqFt9b3eKp91Gq9JdNNM3bHK8oA6KvHq0njgf67Wq41_t2_MvI0VUXwoyBget5mFNw7M6Lc-O3-OEutXVKzWkrT-Uk0o3NCJHGorK-uV6_k4udGMunjr2-C9RKART_gebBFSQpvZ2FwiZnsyUGSf6nYjJeuJsq--q4G2JsezL0ee1GTUGPdOJ7KjDg9J" style="">
+<div class="selected-work-frame relative overflow-hidden aspect-[16/10] rounded-5px">
+<img class="selected-work-media w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 cursor-pointer" data-alt="A modern minimalist architectural structure with clean sharp angles and glass reflecting a bright blue sky, high-end design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiKYZKBMCRM_YxccwO5mIIILULxinRX8rCXr7JPHKljGCNjC6dRN1JmrpZUXP02j3bn2_LA9xwM1EBKugOkqFt9b3eKp91Gq9JdNNM3bHK8oA6KvHq0njgf67Wq41_t2_MvI0VUXwoyBget5mFNw7M6Lc-O3-OEutXVKzWkrT-Uk0o3NCJHGorK-uV6_k4udGMunjr2-C9RKART_gebBFSQpvZ2FwiZnsyUGSf6nYjJeuJsq--q4G2JsezL0ee1GTUGPdOJ7KjDg9J" style="">
 </div>
 </div>
 </div>
@@ -300,32 +465,32 @@
 </div>
 <div class="grid grid-cols-1 lg:grid-cols-3 items-center gap-4">
 <!-- Standard -->
-<div class="bg-white p-12 border border-gray-200 rounded-5px shadow-sm order-2 lg:order-1">
+<div class="pricing-card bg-white p-12 border border-gray-200 rounded-5px shadow-sm order-2 lg:order-1">
 <h3 class="font-headline-md text-headline-md text-primary mb-2" style="">SPRINT</h3>
-<div class="text-4xl font-black mb-8" style="">$4.5k<span class="text-sm font-normal text-secondary" style="">/project</span></div>
+<div class="text-4xl font-black mb-8" style="">$2.5k<span class="text-sm font-normal text-secondary" style="">/project</span></div>
 <ul class="space-y-4 mb-12">
 <li class="flex items-center gap-3 text-secondary" style=""><span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span> 1-Page Landing</li>
 <li class="flex items-center gap-3 text-secondary" style=""><span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span> Custom UI Design</li>
 <li class="flex items-center gap-3 text-secondary" style=""><span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span> 7-Day Delivery</li>
 <li class="flex items-center gap-3 text-secondary" style=""><span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span> SEO Optimization</li>
 </ul>
-<button class="w-full border-2 border-black py-4 font-label-bold text-label-bold uppercase hover:bg-black hover:text-white transition-all rounded-5px" style="">Get Started</button>
+<a class="block w-full border-2 border-black py-4 font-label-bold text-label-bold uppercase hover:bg-black hover:text-white transition-all rounded-5px text-center" href="#start-project-form" style="">Contact Us</a>
 </div>
 <!-- Pro (Studio) - Elevated and Larger -->
-<div class="bg-white p-14 border-2 border-black rounded-5px shadow-2xl z-10 lg:-mt-12 lg:-mb-12 order-1 lg:order-2 relative">
+<div class="pricing-card bg-white p-14 border-2 border-black rounded-5px shadow-2xl z-10 lg:-mt-12 lg:-mb-12 order-1 lg:order-2 relative">
 <div class="absolute top-6 right-6 bg-primary-container text-black font-label-bold text-[10px] py-1 px-4 rounded-5px uppercase border border-black/10" style="">Most Popular</div>
 <h3 class="font-headline-md text-headline-md text-primary mb-2" style="">STUDIO</h3>
-<div class="text-5xl font-black mb-8" style="">$12k<span class="text-sm font-normal text-secondary" style="">/project</span></div>
+<div class="text-5xl font-black mb-8" style="">$5k<span class="text-sm font-normal text-secondary" style="">/project</span></div>
 <ul class="space-y-5 mb-12">
 <li class="flex items-center gap-3 text-secondary" style=""><span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span> Up to 8 Pages</li>
 <li class="flex items-center gap-3 text-secondary" style=""><span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span> Advanced CMS Integration</li>
 <li class="flex items-center gap-3 text-secondary" style=""><span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span> Micro-interactions</li>
 <li class="flex items-center gap-3 text-secondary" style=""><span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span> Performance Audit</li>
 </ul>
-<button class="w-full bg-primary-container text-black py-5 font-label-bold text-label-bold uppercase hover:bg-black hover:text-white transition-all rounded-5px shadow-lg" style="">Get Started</button>
+<a class="block w-full bg-primary-container text-black py-5 font-label-bold text-label-bold uppercase hover:bg-black hover:text-white transition-all rounded-5px shadow-lg text-center" href="#start-project-form" style="">Contact Us</a>
 </div>
 <!-- Enterprise (Custom) -->
-<div class="bg-white p-12 border border-gray-200 rounded-5px shadow-sm order-3">
+<div class="pricing-card bg-white p-12 border border-gray-200 rounded-5px shadow-sm order-3">
 <h3 class="font-headline-md text-headline-md text-primary mb-2" style="">CUSTOM</h3>
 <div class="text-4xl font-black mb-8" style="">Quote</div>
 <ul class="space-y-4 mb-12">
@@ -334,17 +499,17 @@
 <li class="flex items-center gap-3 text-secondary" style=""><span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span> Dedicated Team</li>
 <li class="flex items-center gap-3 text-secondary" style=""><span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span> 24/7 Support</li>
 </ul>
-<button class="w-full border-2 border-black py-4 font-label-bold text-label-bold uppercase hover:bg-black hover:text-white transition-all rounded-5px" style="">Contact Us</button>
+<a class="block w-full border-2 border-black py-4 font-label-bold text-label-bold uppercase hover:bg-black hover:text-white transition-all rounded-5px text-center" href="#start-project-form" style="">Contact Us</a>
 </div>
 </div>
 </div>
 </section>
 <!-- Contact Section -->
-<section class="py-32 px-8 md:px-16 bg-white">
+<section class="py-32 px-8 md:px-16 bg-white" id="start-project-form">
 <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24">
 <div>
-<h2 class="font-headline-lg text-headline-lg uppercase mb-6" style="">Let's Build Something<br><span class="text-primary-container bg-black px-2 rounded-5px" style="">Remarkable</span></h2>
-<p class="text-body-lg text-secondary mb-12" style="">Have a project in mind? We're currently accepting new clients for Q4 2024. Let's discuss your vision.</p>
+<h2 class="font-headline-lg text-headline-lg uppercase mb-6" style="">Let's Build Something<br><span class="text-primary-container bg-black px-2 rounded-5px remarkable-typewriter" id="remarkable-typewriter" data-text="REMARKABLE" style="">REMARKABLE</span></h2>
+<p class="text-body-lg text-secondary mb-12" style="">Have a project in mind? We're currently accepting new clients. Let's discuss your vision.</p>
 <div class="space-y-8">
 <div class="flex items-center gap-6">
 <div class="w-12 h-12 bg-[#F4F7F0] flex items-center justify-center border border-outline-variant rounded-5px">
@@ -388,21 +553,21 @@
 </div>
 </section>
 <!-- FAQ Section -->
-<section class="pt-32 pb-48 px-8 md:px-16 bg-[#F4F7F0] relative">
+<section class="pt-32 pb-48 px-8 md:px-16 bg-[#F4F7F0] relative" id="faq">
 <div class="max-w-4xl mx-auto">
 <div class="mb-20 text-center">
 <h2 class="font-headline-lg text-headline-lg mb-4 uppercase" style="">Frequently Asked Questions</h2>
 <div class="w-24 h-2 bg-primary-container rounded-5px mx-auto"></div>
 </div>
-<div class="space-y-4">
+<div class="space-y-4" id="faq-accordion">
 <!-- FAQ Item 1 -->
 <details class="group bg-white border border-outline-variant rounded-5px overflow-hidden transition-all duration-300" style="">
 <summary class="flex justify-between items-center p-8 cursor-pointer list-none" style="">
 <h4 class="font-headline-md text-[20px] uppercase text-black leading-tight" style="">How long does a typical project take?</h4>
 <span class="material-symbols-outlined expand-icon transition-transform duration-300 text-black" style="">expand_more</span>
 </summary>
-<div class="px-8 pb-8">
-<p class="text-body-md text-secondary border-t border-outline-variant pt-6" style="">Our Sprint packages deliver in 7-10 days, while custom Studio projects typically span 4-8 weeks depending on the complexity of the design system and backend integrations.</p>
+<div class="faq-content px-8">
+<p class="faq-content-inner text-body-md text-secondary border-t border-outline-variant pt-6 pb-8" style="">Our Sprint packages deliver in 7-10 days, while custom Studio projects typically span 4-8 weeks depending on the complexity of the design system and backend integrations.</p>
 </div>
 </details>
 <!-- FAQ Item 2 -->
@@ -411,8 +576,8 @@
 <h4 class="font-headline-md text-[20px] uppercase text-black leading-tight" style="">What is your tech stack?</h4>
 <span class="material-symbols-outlined expand-icon transition-transform duration-300 text-black" style="">expand_more</span>
 </summary>
-<div class="px-8 pb-8">
-<p class="text-body-md text-secondary border-t border-outline-variant pt-6" style="">We specialize in React, Next.js, and Tailwind CSS for frontend. For CMS, we integrate with Headless solutions like Contentful or Sanity to ensure maximum performance and scalability.</p>
+<div class="faq-content px-8">
+<p class="faq-content-inner text-body-md text-secondary border-t border-outline-variant pt-6 pb-8" style="">We specialize in React, Next.js, and Tailwind CSS for frontend. For CMS, we integrate with Headless solutions like Contentful or Sanity to ensure maximum performance and scalability.</p>
 </div>
 </details>
 <!-- FAQ Item 3 -->
@@ -421,8 +586,8 @@
 <h4 class="font-headline-md text-[20px] uppercase text-black leading-tight" style="">Do you offer payment plans?</h4>
 <span class="material-symbols-outlined expand-icon transition-transform duration-300 text-black" style="">expand_more</span>
 </summary>
-<div class="px-8 pb-8">
-<p class="text-body-md text-secondary border-t border-outline-variant pt-6" style="">Yes. We typically structure payments as 50% upfront and 50% upon delivery for smaller projects. For enterprise-level work, we offer milestone-based billing to suit your budget.</p>
+<div class="faq-content px-8">
+<p class="faq-content-inner text-body-md text-secondary border-t border-outline-variant pt-6 pb-8" style="">Yes. We typically structure payments as 50% upfront and 50% upon delivery for smaller projects. For enterprise-level work, we offer milestone-based billing to suit your budget.</p>
 </div>
 </details>
 <!-- FAQ Item 4 -->
@@ -431,18 +596,18 @@
 <h4 class="font-headline-md text-[20px] uppercase text-black leading-tight" style="">Will my site be SEO optimized?</h4>
 <span class="material-symbols-outlined expand-icon transition-transform duration-300 text-black" style="">expand_more</span>
 </summary>
-<div class="px-8 pb-8">
-<p class="text-body-md text-secondary border-t border-outline-variant pt-6" style="">Absolutely. SEO isn't an afterthought for us. We implement semantic HTML, lightning-fast load times, and structured data schemas to ensure your brand ranks effectively from day one.</p>
+<div class="faq-content px-8">
+<p class="faq-content-inner text-body-md text-secondary border-t border-outline-variant pt-6 pb-8" style="">Absolutely. SEO isn't an afterthought for us. We implement semantic HTML, lightning-fast load times, and structured data schemas to ensure your brand ranks effectively from day one.</p>
 </div>
 </details>
 </div>
 <div class="mt-20 text-center">
 <p class="font-body-md text-secondary mb-8" style="">Have more questions?</p>
-<a class="case-study-link bg-black text-white px-10 py-5 font-label-bold text-label-bold uppercase flex items-center gap-3 hover:bg-primary-container hover:text-black transition-colors duration-300 rounded-5px mx-auto w-fit" href="#" style=""><span class="case-study-text">GET PROPOSAL</span><span class="case-study-arrow material-symbols-outlined" style="">arrow_forward</span></a>
+<a class="case-study-link bg-black text-white px-10 py-5 font-label-bold text-label-bold uppercase flex items-center gap-3 hover:bg-primary-container hover:text-black transition-colors duration-300 rounded-5px mx-auto w-fit" href="#start-project-form" style=""><span class="case-study-text">GET PROPOSAL</span><span class="case-study-arrow material-symbols-outlined" style="">arrow_forward</span></a>
 </div>
 </div>
 <!-- Overlapping Visual Element -->
-<div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[calc(100%-48px)] max-w-5xl z-20">
+<div class="relative mt-12 w-[calc(100%-32px)] max-w-5xl mx-auto z-20 md:absolute md:bottom-0 md:left-1/2 md:mt-0 md:-translate-x-1/2 md:translate-y-1/2 md:w-[calc(100%-48px)]">
 <div class="bg-primary-container p-8 md:p-12 border-2 border-black rounded-5px flex flex-col md:flex-row items-center justify-between gap-8 group cursor-pointer overflow-hidden relative">
 <div class="absolute -right-12 -top-12 w-48 h-48 bg-black/5 rounded-full blur-3xl group-hover:bg-black/10 transition-colors"></div>
 <div class="relative z-10 flex-1">
@@ -461,50 +626,307 @@
 </section>
 </main>
 <!-- Footer -->
-<footer class="w-full pt-48 pb-16 border-t tonal shift and 1px border-gray-200 dark:border-zinc-800 bg-[#F4F7F0] dark:bg-zinc-900">
-<div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-8 md:px-16 gap-8">
-<div class="text-xl font-black text-black dark:text-white font-['Montserrat']" style="">KINETIC</div>
-<div class="flex gap-8">
+<footer class="w-full pt-48 pb-16 border-t border-gray-200 dark:border-zinc-800 bg-[#F4F7F0] dark:bg-zinc-900">
+<div class="max-w-7xl mx-auto px-8 md:px-16 grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-8">
+<div class="flex items-center justify-center md:justify-start" style="">
+<a aria-label="Go to top of page" href="#top">
+<img alt="Kinetic logo" class="h-12 w-auto" src="logo2.svg">
+</a>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
 <a class="text-gray-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors duration-200 font-['Space_Grotesk'] text-sm tracking-widest uppercase opacity-80 hover:opacity-100 transition-opacity" href="#" style="">Instagram</a>
+<a class="text-gray-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors duration-200 font-['Space_Grotesk'] text-sm tracking-widest uppercase opacity-80 hover:opacity-100 transition-opacity" href="privacy-policy.html" style="">Privacy Policy</a>
+<a class="text-gray-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors duration-200 font-['Space_Grotesk'] text-sm tracking-widest uppercase opacity-80 hover:opacity-100 transition-opacity" href="standard-terms.html" style="">Standard Terms</a>
+<a class="text-gray-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors duration-200 font-['Space_Grotesk'] text-sm tracking-widest uppercase opacity-80 hover:opacity-100 transition-opacity" href="code.html#faq" style="">FAQ</a>
+<a class="text-gray-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors duration-200 font-['Space_Grotesk'] text-sm tracking-widest uppercase opacity-80 hover:opacity-100 transition-opacity" href="sitemap.html" style="">Site Map</a>
 <a class="text-gray-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors duration-200 font-['Space_Grotesk'] text-sm tracking-widest uppercase opacity-80 hover:opacity-100 transition-opacity" href="#" style="">Contact</a>
 </div>
-<div class="font-['Space_Grotesk'] text-sm tracking-widest uppercase text-gray-400" style="">
+<div class="font-['Space_Grotesk'] text-sm tracking-widest uppercase text-gray-400 text-center md:text-right" style="">
             @2026 DYZIGN LABS LLC</div>
 </div>
 </footer>
 <script>
-        (function setupExpertiseTilt() {
-            var tiltFactor = 12;
-            var expertiseCards = document.querySelectorAll(".expertise-card");
+        (function setupRemarkableTypewriter() {
+            var target = document.getElementById("remarkable-typewriter");
 
-            expertiseCards.forEach(function (card) {
-                var inner = document.createElement("div");
-                inner.className = "tilt-inner";
+            if (!target) {
+                return;
+            }
 
-                while (card.firstChild) {
-                    inner.appendChild(card.firstChild);
+            var fullText = target.getAttribute("data-text") || target.textContent || "";
+            var typeDelay = 130;
+            var holdDelay = 1200;
+            var deleteDelay = 80;
+            var restartDelay = 350;
+            var index = 0;
+
+            target.textContent = "\u00A0";
+
+            function typeForward() {
+                if (index < fullText.length) {
+                    index += 1;
+                    target.textContent = fullText.slice(0, index);
+                    setTimeout(typeForward, typeDelay);
+                    return;
                 }
 
-                card.appendChild(inner);
+                setTimeout(typeBackward, holdDelay);
+            }
 
-                card.addEventListener("mousemove", function (event) {
-                    var rect = card.getBoundingClientRect();
-                    var mouseX = event.clientX - rect.left;
-                    var mouseY = event.clientY - rect.top;
-                    var centerX = rect.width / 2;
-                    var centerY = rect.height / 2;
-                    var deltaX = mouseX - centerX;
-                    var deltaY = mouseY - centerY;
+            function typeBackward() {
+                if (index > 0) {
+                    index -= 1;
+                    target.textContent = index > 0 ? fullText.slice(0, index) : "\u00A0";
+                    setTimeout(typeBackward, deleteDelay);
+                    return;
+                }
 
-                    var rotateX = (-(deltaY / centerY) * tiltFactor).toFixed(2);
-                    var rotateY = ((deltaX / centerX) * tiltFactor).toFixed(2);
+                setTimeout(typeForward, restartDelay);
+            }
 
-                    inner.style.transform = "rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg)";
+            typeForward();
+        })();
+
+        (function setupMobileNavMenu() {
+            var mobileMenu = document.getElementById("mobile-nav-menu");
+            var toggleButton = document.getElementById("mobile-menu-toggle");
+            var toggleIcon = document.getElementById("mobile-menu-icon");
+
+            if (!mobileMenu || !toggleButton || !toggleIcon) {
+                return;
+            }
+
+            function setMenuState(isOpen) {
+                mobileMenu.classList.toggle("hidden", !isOpen);
+                toggleButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+                toggleIcon.textContent = isOpen ? "close" : "menu";
+            }
+
+            setMenuState(false);
+
+            toggleButton.addEventListener("click", function () {
+                var isCurrentlyOpen = toggleButton.getAttribute("aria-expanded") === "true";
+                setMenuState(!isCurrentlyOpen);
+            });
+
+            mobileMenu.querySelectorAll("a").forEach(function (link) {
+                link.addEventListener("click", function () {
+                    setMenuState(false);
+                });
+            });
+
+            window.addEventListener("resize", function () {
+                if (window.innerWidth >= 768) {
+                    setMenuState(false);
+                }
+            });
+        })();
+
+        (function setupDesktopNavIndicator() {
+            var linksContainer = document.getElementById("desktop-nav-links");
+            var indicator = document.getElementById("desktop-nav-indicator");
+
+            if (!linksContainer || !indicator) {
+                return;
+            }
+
+            var navItems = Array.prototype.slice.call(linksContainer.querySelectorAll("[data-nav-item]"));
+            if (!navItems.length) {
+                return;
+            }
+
+            var activeItem = linksContainer.querySelector("[data-nav-active='true']") || navItems[0];
+            var desktopMediaQuery = window.matchMedia("(min-width: 768px)");
+
+            function moveIndicatorTo(target) {
+                if (!target || !desktopMediaQuery.matches) {
+                    indicator.style.opacity = "0";
+                    return;
+                }
+
+                var left = target.offsetLeft;
+                var width = target.offsetWidth;
+
+                indicator.style.width = width + "px";
+                indicator.style.transform = "translateX(" + left + "px)";
+                indicator.style.opacity = "1";
+            }
+
+            navItems.forEach(function (item) {
+                item.addEventListener("mouseenter", function () {
+                    moveIndicatorTo(item);
                 });
 
-                card.addEventListener("mouseleave", function () {
-                    inner.style.transform = "rotateX(0deg) rotateY(0deg)";
+                item.addEventListener("focus", function () {
+                    moveIndicatorTo(item);
                 });
+            });
+
+            linksContainer.addEventListener("mouseleave", function () {
+                moveIndicatorTo(activeItem);
+            });
+
+            window.addEventListener("resize", function () {
+                moveIndicatorTo(activeItem);
+            });
+
+            if (typeof ResizeObserver !== "undefined") {
+                var resizeObserver = new ResizeObserver(function () {
+                    moveIndicatorTo(activeItem);
+                });
+
+                resizeObserver.observe(linksContainer);
+                navItems.forEach(function (item) {
+                    resizeObserver.observe(item);
+                });
+            }
+
+            if (document.fonts && typeof document.fonts.ready === "object") {
+                document.fonts.ready.then(function () {
+                    moveIndicatorTo(activeItem);
+                });
+            }
+
+            if (typeof desktopMediaQuery.addEventListener === "function") {
+                desktopMediaQuery.addEventListener("change", function () {
+                    moveIndicatorTo(activeItem);
+                });
+            } else if (typeof desktopMediaQuery.addListener === "function") {
+                desktopMediaQuery.addListener(function () {
+                    moveIndicatorTo(activeItem);
+                });
+            }
+
+            moveIndicatorTo(activeItem);
+        })();
+
+        (function setupFaqHoverAccordion() {
+            var faqAccordion = document.getElementById("faq-accordion");
+
+            if (!faqAccordion) {
+                return;
+            }
+
+            var faqItems = faqAccordion.querySelectorAll("details");
+            var ANIMATION_DURATION_MS = 420;
+
+            function getContent(item) {
+                return item.querySelector(".faq-content");
+            }
+
+            function animateOpen(item) {
+                var content = getContent(item);
+                if (!content) {
+                    item.open = true;
+                    return;
+                }
+
+                item.open = true;
+                content.style.maxHeight = "0px";
+                void content.offsetHeight;
+                content.style.transition = "max-height " + ANIMATION_DURATION_MS + "ms cubic-bezier(0.22, 1, 0.36, 1)";
+                content.style.maxHeight = content.scrollHeight + "px";
+
+                window.setTimeout(function () {
+                    if (item.open) {
+                        content.style.maxHeight = "none";
+                    }
+                }, ANIMATION_DURATION_MS);
+            }
+
+            function animateClose(item) {
+                var content = getContent(item);
+                if (!content || !item.open) {
+                    item.open = false;
+                    return;
+                }
+
+                content.style.maxHeight = content.scrollHeight + "px";
+                void content.offsetHeight;
+                content.style.transition = "max-height " + ANIMATION_DURATION_MS + "ms cubic-bezier(0.22, 1, 0.36, 1)";
+                content.style.maxHeight = "0px";
+
+                window.setTimeout(function () {
+                    item.open = false;
+                    content.style.maxHeight = "";
+                    content.style.transition = "";
+                }, ANIMATION_DURATION_MS);
+            }
+
+            faqItems.forEach(function (item) {
+                var content = getContent(item);
+                if (content) {
+                    content.style.maxHeight = "0px";
+                }
+
+                item.addEventListener("mouseenter", function () {
+                    faqItems.forEach(function (otherItem) {
+                        if (otherItem !== item) {
+                            animateClose(otherItem);
+                        }
+                    });
+                    animateOpen(item);
+                });
+
+                item.addEventListener("mouseleave", function () {
+                    animateClose(item);
+                });
+            });
+        })();
+
+        (function setupScrollSlideInAnimations() {
+            var animatedElements = document.querySelectorAll(
+                [
+                    "main section span",
+                    "main section h1",
+                    "main section h2",
+                    "main section h3",
+                    "main section h4",
+                    "main section p",
+                    "main section img",
+                    "main section button",
+                    "main section a",
+                    "main section li",
+                    "main section details",
+                    "main section form",
+                    "main section input",
+                    "main section textarea",
+                    "footer div",
+                    "footer a"
+                ].join(",")
+            );
+
+            if (!animatedElements.length) {
+                return;
+            }
+
+            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                animatedElements.forEach(function (element) {
+                    element.classList.add("scroll-slide-in-visible");
+                });
+                return;
+            }
+
+            var observer = new IntersectionObserver(
+                function (entries) {
+                    entries.forEach(function (entry) {
+                        if (!entry.isIntersecting) {
+                            return;
+                        }
+
+                        entry.target.classList.add("scroll-slide-in-visible");
+                        observer.unobserve(entry.target);
+                    });
+                },
+                {
+                    threshold: 0.15,
+                    rootMargin: "0px 0px -8% 0px"
+                }
+            );
+
+            animatedElements.forEach(function (element) {
+                element.classList.add("scroll-slide-in");
+                observer.observe(element);
             });
         })();
     </script>

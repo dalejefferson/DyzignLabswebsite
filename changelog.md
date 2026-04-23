@@ -1,6 +1,21 @@
 ## Changelog
 
 ### 2026-04-23
+- Updated the hero supporting paragraph in `code.html` from `text-2xl md:text-3xl` to `text-sm md:text-sm` to persist the browser-approved `font-size: 14px` change.
+- Updated `.hero-text-stroke` in `code.html` to `font-size: 40px` so `STRONG PERFORMANCE.` matches the browser-approved hero sizing.
+- Adjusted desktop navbar indicator spacing in `code.html` so the green underline sits directly beneath nav text instead of floating too low.
+- Updated the navbar `Get a Free Quote` CTA in `code.html` to use the green primary palette in both desktop and mobile layouts.
+- Updated the navbar phone CTA color in `code.html` to green (`text-primary`) with a brighter green hover state for better visual pairing with the quote button.
+- Updated the navbar phone CTA default color in `code.html` from green to black (`text-black`) for both desktop and mobile, while keeping the existing hover color.
+- Replaced the navbar `Start Project` CTA in `code.html` with `Get a Free Quote` and updated styling to a cleaner outlined treatment aligned with the site palette.
+- Added a direct phone CTA beside the desktop navbar quote button and inside the mobile menu using `+1(405)687-4981` (`tel:+14056874981`).
+- Replaced remaining legacy business references in `standard-terms.html` with `DYZIGN LABS LLC` naming and updated service-party wording accordingly.
+- Added business contact details to `standard-terms.html`: `dale@dyzignlabs.com`, `+1 (405) 529-3679`, and `www.dyzignlabs.com`.
+- Replaced the content block in `standard-terms.html` with the Standard Terms text provided by the client and formatted it for readable legal copy presentation.
+- Replaced `privacy-policy.html` body content with the full legal-style privacy policy text provided by the client.
+- Updated all legacy company/URL references in the privacy policy to `DYZIGN LABS LLC` and `https://www.dyzignlabs.com/`.
+- Added explicit privacy contact details to the page: `dale@dyzignlabs.com`, `+1 (405) 529-3679`, and `www.dyzignlabs.com`.
+- Updated sitemap list links in `sitemap.html` so `Home / Work`, `Tech Services`, `Process`, `Pricing`, `Start Project`, `FAQ`, `Privacy Policy`, and `Standard Terms` now turn green on hover.
 - Added hover animation to cards in the "Our Expertise" section in `code.html`.
 - New interaction lifts cards on hover and adds a subtle shadow for visual feedback.
 - Added hover movement animation for `Case Study` buttons so the text and arrow slide together, with extra arrow travel for clearer direction.
@@ -12,3 +27,56 @@
 - Added a card tilt interaction to every `OUR EXPERTISE` card in `code.html` using an outer perspective container and inner 3D transform layer.
 - Preserved existing card design and copy while keeping the original hover lift/shadow behavior and adding mouse-move based X/Y rotation.
 - Started a fresh local server on port `8015` for immediate testing.
+- Fixed expertise card text/icon clipping during tilt by removing inner `preserve-3d`, adding backface visibility guards, and using `translateZ(0)` in transforms.
+- Removed the expertise card tilt effect entirely and restored cards to the original hover-only lift/shadow animation in `code.html`.
+- Added a looping typewriter animation for the `Remarkable` pill in the contact headline in `code.html`.
+- Preserved the existing black/neon badge styling while adding a blinking caret and type/delete timing for continuous motion.
+- Applied an animated blue-to-purple horizontal gradient to the hero main heading (`BOLD WEBSITES.`) in `code.html` with a 3s infinite loop.
+- Replaced the hero heading gradient with exact palette colors in `code.html` (`#4c6700` -> `#c7ff3c` -> `#4c6700`) while preserving the 3s horizontal loop animation.
+- Updated the FAQ cards in `code.html` so each item auto-expands on mouse hover and collapses on mouse leave.
+- Limited hover behavior to the currently hovered FAQ card and ensured non-hovered cards stay collapsed.
+- Started a fresh local server on port `8030` for immediate testing.
+- Smoothed FAQ accordion motion in `code.html` with animated height/opacity transitions for open and close states.
+- Updated FAQ content wrappers to support fluid panel expansion/collapse without abrupt snapping.
+- Added a shared scroll reveal animation in `code.html` for hero text and site elements, moving from `translateY(50px)` to `translateY(0)`.
+- Set reveal timing to `500ms` with `cubic-bezier(0.175, 0.885, 0.32, 1.275)` and `0ms` delay (no stagger) across elements.
+- Updated the footer link row in `code.html` by inserting `Privacy Policy`, `Standard Terms`, `FAQ`, and `Site Map` between `Instagram` and `Contact`.
+- Kept the existing footer typography and hover styling so only link labels/order changed.
+- Updated the hero `Get Proposal` CTA in `code.html` from a non-navigating button to an anchor targeting `#start-project-form`.
+- Preserved existing button styling and animation classes while enabling smooth in-page scroll to the contact form section.
+- Started a fresh local server on port `8041` for immediate testing.
+- Fixed the `REMARKABLE` typewriter badge in `code.html` so the black pill background remains visible even when the text animation reaches an empty frame.
+- Added a non-breaking-space fallback and a minimum badge height to prevent visual collapse when typing/deleting pauses or stops.
+- Replaced the first `Selected Works` project image in `code.html` with the local video `hf_20260423_153703_f0fb84da-a604-44ee-b816-cee06b2a65bb.mp4`.
+- Kept the original visual treatment by applying the same object-fit, grayscale, and hover transition classes to the new video element.
+- Added a responsive mobile navbar mode in `code.html` with a hamburger toggle that appears below `md` breakpoints.
+- Added a collapsible mobile menu drawer that includes all primary nav links (`Work`, `Tech Services`, `Process`, `Pricing`) plus `Start Project`.
+- Added menu open/close logic in the page script to update `aria-expanded`, switch the icon (`menu`/`close`), auto-close on link tap, and reset on desktop resize.
+- Created `privacy-policy.html`, `standard-terms.html`, and `sitemap.html` with a shared fixed navbar and matching footer link set.
+- Updated footer links in `code.html` to navigate to the new policy/terms/sitemap pages instead of `#` placeholders.
+- Added `id="faq"` to the landing page FAQ section and updated `FAQ` links to `code.html#faq` so they jump directly to the FAQ section.
+- Started a fresh local server on port `8052` for immediate testing.
+- Fixed footer alignment in `code.html` by switching to a 3-column responsive grid (`logo / links / copyright`) with centered link group and right-aligned copyright on desktop.
+- Cleaned the footer class list in `code.html` by removing invalid class text and preserving the existing visual design.
+- Fixed overlapping service-card content in `code.html` by repairing invalid nested `<h3>` markup in the first expertise card.
+- Updated the expertise grid breakpoints to `1 / 2 / 3` columns (`mobile / tablet / desktop`) to prevent cramped card widths on mid-size screens.
+- Made all expertise cards more responsive with adaptive padding, balanced icon row spacing, and fluid headline sizing (`clamp`) plus `break-words` to avoid text overflow.
+- Centered the mobile menu content in `code.html` so nav links, quote CTA, and phone CTA are all aligned in the middle on small screens.
+- Updated the mobile `Get a Free Quote` CTA sizing to use a centered full-width button with a max width for cleaner mobile balance.
+- Added a dedicated `.pricing-card` hover interaction in `code.html` for the three pricing plans (`SPRINT`, `STUDIO`, `CUSTOM`).
+- New hover behavior lifts each card, deepens shadow, and darkens border for clearer interactive feedback.
+- Updated all pricing card CTA labels in `code.html` so every pricing button now reads `Contact Us`.
+- Fixed mobile overlap in the FAQ/CTA transition in `code.html` by keeping the neon "Ready to start your Kinetic journey?" card in normal document flow on small screens and only applying absolute overlap positioning on `md` and larger breakpoints.
+- Started a fresh local server on port `8071` for immediate testing.
+- Made header and footer logos in `code.html` clickable links to `#top` so users can return to the main screen/top from anywhere on the page.
+- Added `id="top"` to the `<body>` in `code.html` as the shared in-page anchor target for logo navigation.
+- Added a scoped Selected Works hover interaction in `code.html` so media elements scale slightly inside their existing rounded frames.
+- Applied the new behavior to both the first project video and second project image using shared `selected-work-frame` and `selected-work-media` classes.
+- Started a fresh local server on port `8093` for immediate testing.
+- Updated the bottom FAQ `GET PROPOSAL` button in `code.html` to target `#start-project-form` instead of `#`.
+- This now scrolls users directly to the form section when they click the bottom CTA.
+- Added a new `case-studies.html` page styled to match `DESIGN.md`, including a dedicated case studies hero, project cards, and per-project anchor sections.
+- Kept the neon CTA bar near the footer on `case-studies.html` so the same footer-area callout treatment is preserved.
+- Updated `All Projects` in `code.html` to link directly to `case-studies.html`.
+- Updated the two `Case Study` buttons in `code.html` to deep-link into project sections on `case-studies.html` (`#neon-asset-management`, `#chrome-wearables`).
+- Added `Case Studies` to the main navbar in `code.html` for both desktop and mobile navigation, linking to `case-studies.html`.
