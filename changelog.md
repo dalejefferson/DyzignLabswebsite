@@ -1,6 +1,10 @@
 ## Changelog
 
 ### 2026-04-23
+- Fixed distorted interior lines on the hero `STRONG PERFORMANCE.` text in `index.html` by updating `.hero-text-stroke` to use a white fill (`color` + `-webkit-text-fill-color`) with the existing black stroke for clean outline rendering.
+- Fixed the landing page hero in `index.html` so it scales cleanly across mobile, tablet, and desktop instead of using oversized fixed desktop typography.
+- Replaced the hero's hard-coded `112px` title sizing and overly tall section height with fluid `clamp(...)` text sizing, tighter responsive spacing, and viewport-aware minimum heights.
+- Updated the hero CTA/button row and background glow positioning so the first screen feels balanced and readable on small screens.
 - Tightened navbar spacing across `index.html`, `case-studies.html`, `privacy-policy.html`, `standard-terms.html`, and `sitemap.html` to better match the provided reference while keeping the existing labels.
 - Shifted desktop navigation visibility from `md` to `lg` so intermediate widths collapse earlier and `Case Studies` stays readable instead of feeling cramped.
 - Reduced desktop CTA/header footprint and refined the homepage nav indicator proportions for a lighter, cleaner top bar.
