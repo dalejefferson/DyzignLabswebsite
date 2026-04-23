@@ -6,27 +6,43 @@
   <title>Privacy Policy | KINETIC</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <style>.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }</style>
 </head>
-<body class="bg-background text-on-surface font-['Montserrat']">
+<body class="bg-background text-on-surface font-['Montserrat'] overflow-x-hidden">
   <header class="fixed top-0 w-full z-50 border-b bg-white/90 backdrop-blur-md border-gray-200">
-    <nav class="flex justify-between items-center max-w-7xl mx-auto px-5 md:px-16 h-20">
-      <a class="flex items-center" href="code.html" aria-label="Go to home page">
+    <nav class="relative flex justify-center md:justify-between items-center max-w-7xl mx-auto px-5 md:px-16 h-20">
+      <a class="flex items-center" href="index.html" aria-label="Go to home page">
         <img alt="Kinetic logo" class="h-12 w-auto" src="logo2.svg">
       </a>
       <div class="hidden md:flex items-center space-x-10">
-        <a class="text-gray-600 hover:text-black transition-colors uppercase font-['Montserrat'] font-bold tracking-tight" href="code.html">Work</a>
-        <a class="text-gray-600 hover:text-black transition-colors uppercase font-['Montserrat'] font-bold tracking-tight" href="code.html#tech-services">Tech Services</a>
-        <a class="text-gray-600 hover:text-black transition-colors uppercase font-['Montserrat'] font-bold tracking-tight" href="code.html#process">Process</a>
-        <a class="text-gray-600 hover:text-black transition-colors uppercase font-['Montserrat'] font-bold tracking-tight" href="code.html#pricing">Pricing</a>
+        <a class="text-gray-600 hover:text-black transition-colors uppercase font-['Montserrat'] font-bold tracking-tight" href="index.html">Work</a>
+        <a class="text-gray-600 hover:text-black transition-colors uppercase font-['Montserrat'] font-bold tracking-tight" href="case-studies.html">Case Studies</a>
+        <a class="text-gray-600 hover:text-black transition-colors uppercase font-['Montserrat'] font-bold tracking-tight" href="index.html#tech-services">Tech Services</a>
+        <a class="text-gray-600 hover:text-black transition-colors uppercase font-['Montserrat'] font-bold tracking-tight" href="index.html#pricing">Pricing</a>
       </div>
-      <a class="hidden md:inline-flex bg-lime-300 text-black px-8 py-3 text-sm font-bold uppercase hover:bg-lime-400 transition-all rounded border border-black items-center justify-center" href="code.html#start-project-form">Start Project</a>
+      <div class="absolute right-5 md:right-0 md:static flex items-center gap-3">
+        <a class="hidden md:inline-flex bg-[#c7ff3c] text-black px-8 py-3 text-sm font-bold uppercase hover:bg-lime-400 transition-all rounded-[5px] border border-black items-center justify-center min-h-[44px]" href="index.html#start-project-form">Get a Free Quote</a>
+        <button aria-controls="mobile-nav-menu" aria-expanded="false" aria-label="Toggle navigation menu" class="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-[5px] border border-black bg-white text-black" id="mobile-menu-toggle" type="button">
+          <span class="material-symbols-outlined text-[28px]" id="mobile-menu-icon">menu</span>
+        </button>
+      </div>
     </nav>
+    <div class="hidden md:hidden border-t border-gray-200 bg-white px-5 py-6" id="mobile-nav-menu">
+      <div class="flex flex-col gap-4 items-center text-center">
+        <a class="text-gray-700 hover:text-black transition-colors font-['Montserrat'] font-bold tracking-tight uppercase py-2 min-h-[44px] inline-flex items-center justify-center" href="index.html">Work</a>
+        <a class="text-gray-700 hover:text-black transition-colors font-['Montserrat'] font-bold tracking-tight uppercase py-2 min-h-[44px] inline-flex items-center justify-center" href="case-studies.html">Case Studies</a>
+        <a class="text-gray-700 hover:text-black transition-colors font-['Montserrat'] font-bold tracking-tight uppercase py-2 min-h-[44px] inline-flex items-center justify-center" href="index.html#tech-services">Tech Services</a>
+        <a class="text-gray-700 hover:text-black transition-colors font-['Montserrat'] font-bold tracking-tight uppercase py-2 min-h-[44px] inline-flex items-center justify-center" href="index.html#pricing">Pricing</a>
+        <a class="mt-2 bg-[#c7ff3c] text-black px-6 py-3 text-sm font-bold uppercase hover:bg-lime-400 transition-all rounded-[5px] border border-black inline-flex items-center justify-center w-full max-w-[360px] min-h-[44px]" href="index.html#start-project-form">Get a Free Quote</a>
+      </div>
+    </div>
   </header>
 
-  <main class="pt-28 pb-24 px-8 md:px-16 bg-[#F4F7F0] min-h-screen">
-    <div class="max-w-4xl mx-auto bg-white border border-gray-200 rounded p-8 md:p-12">
-      <h1 class="text-4xl md:text-5xl font-['Space_Grotesk'] font-bold uppercase mb-8">Privacy Policy</h1>
-      <div class="space-y-8 text-gray-700 leading-relaxed">
+  <main class="pt-28 pb-24 px-4 sm:px-8 md:px-16 bg-[#F4F7F0] min-h-screen overflow-x-hidden">
+    <div class="max-w-4xl mx-auto bg-white border border-gray-200 rounded p-5 sm:p-8 md:p-12">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-['Space_Grotesk'] font-bold uppercase mb-6 sm:mb-8 break-words">Privacy Policy</h1>
+      <div class="space-y-8 text-gray-700 leading-relaxed break-words">
         <section>
           <p class="font-semibold">Your privacy is critically important to us.</p>
           <p>
@@ -44,7 +60,7 @@
         </section>
 
         <section>
-          <h2 class="text-2xl font-['Space_Grotesk'] font-semibold uppercase mb-3">Website Visitors</h2>
+          <h2 class="text-xl sm:text-2xl font-['Space_Grotesk'] font-semibold uppercase mb-3 break-words">Website Visitors</h2>
           <p>
             Like most website operators, DYZIGN LABS LLC collects non-personally-identifying information of the sort that web browsers and servers
             typically make available, such as the browser type, language preference, referring site, and the date and time of each visitor request.
@@ -59,7 +75,7 @@
         </section>
 
         <section>
-          <h2 class="text-2xl font-['Space_Grotesk'] font-semibold uppercase mb-3">Gathering of Personally-Identifying Information</h2>
+          <h2 class="text-xl sm:text-2xl font-['Space_Grotesk'] font-semibold uppercase mb-3 break-words">Gathering of Personally-Identifying Information</h2>
           <p>
             Certain visitors to DYZIGN LABS LLC's websites choose to interact with DYZIGN LABS LLC in ways that require DYZIGN LABS LLC to gather
             personally-identifying information. The amount and type of information that DYZIGN LABS LLC gathers depends on the nature of the interaction.
@@ -70,7 +86,7 @@
         </section>
 
         <section>
-          <h2 class="text-2xl font-['Space_Grotesk'] font-semibold uppercase mb-3">Security</h2>
+          <h2 class="text-xl sm:text-2xl font-['Space_Grotesk'] font-semibold uppercase mb-3 break-words">Security</h2>
           <p>
             The security of your Personal Information is important to us, but remember that no method of transmission over the Internet, or method
             of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Information,
@@ -79,7 +95,7 @@
         </section>
 
         <section>
-          <h2 class="text-2xl font-['Space_Grotesk'] font-semibold uppercase mb-3">Advertisements</h2>
+          <h2 class="text-xl sm:text-2xl font-['Space_Grotesk'] font-semibold uppercase mb-3 break-words">Advertisements</h2>
           <p>
             Ads appearing on our website may be delivered to users by advertising partners, who may set cookies. These cookies allow the ad server to
             recognize your computer each time they send you an online advertisement to compile information about you or others who use your computer.
@@ -89,7 +105,7 @@
         </section>
 
         <section>
-          <h2 class="text-2xl font-['Space_Grotesk'] font-semibold uppercase mb-3">Links To External Sites</h2>
+          <h2 class="text-xl sm:text-2xl font-['Space_Grotesk'] font-semibold uppercase mb-3 break-words">Links To External Sites</h2>
           <p>
             Our Service may contain links to external sites that are not operated by us. If you click on a third party link, you will be directed to
             that third party's site. We strongly advise you to review the Privacy Policy and terms and conditions of every site you visit. We have no
@@ -98,7 +114,7 @@
         </section>
 
         <section>
-          <h2 class="text-2xl font-['Space_Grotesk'] font-semibold uppercase mb-3">Google Ads Remarketing</h2>
+          <h2 class="text-xl sm:text-2xl font-['Space_Grotesk'] font-semibold uppercase mb-3 break-words">Google Ads Remarketing</h2>
           <p>
             <a class="text-black underline" href="https://www.dyzignlabs.com/" target="_blank" rel="noopener noreferrer">https://www.dyzignlabs.com/</a>
             uses remarketing services to advertise on third party websites (including Google) to previous visitors to our site. It could mean that we
@@ -111,7 +127,7 @@
         </section>
 
         <section>
-          <h2 class="text-2xl font-['Space_Grotesk'] font-semibold uppercase mb-3">Aggregated Statistics</h2>
+          <h2 class="text-xl sm:text-2xl font-['Space_Grotesk'] font-semibold uppercase mb-3 break-words">Aggregated Statistics</h2>
           <p>
             DYZIGN LABS LLC may collect statistics about the behavior of visitors to its website. DYZIGN LABS LLC may display this information publicly
             or provide it to others. However, DYZIGN LABS LLC does not disclose your personally-identifying information.
@@ -119,7 +135,7 @@
         </section>
 
         <section>
-          <h2 class="text-2xl font-['Space_Grotesk'] font-semibold uppercase mb-3">Cookies</h2>
+          <h2 class="text-xl sm:text-2xl font-['Space_Grotesk'] font-semibold uppercase mb-3 break-words">Cookies</h2>
           <p>
             To enrich and perfect your online experience, DYZIGN LABS LLC uses "Cookies", similar technologies and services provided by others to display
             personalized content, appropriate advertising and store your preferences on your computer. A cookie is a string of information that a website
@@ -134,7 +150,7 @@
         </section>
 
         <section>
-          <h2 class="text-2xl font-['Space_Grotesk'] font-semibold uppercase mb-3">E-commerce</h2>
+          <h2 class="text-xl sm:text-2xl font-['Space_Grotesk'] font-semibold uppercase mb-3 break-words">E-commerce</h2>
           <p>
             Those who engage in transactions with DYZIGN LABS LLC by purchasing DYZIGN LABS LLC's services or products are asked to provide additional
             information, including as necessary the personal and financial information required to process those transactions. In each case, DYZIGN LABS LLC
@@ -145,7 +161,7 @@
         </section>
 
         <section>
-          <h2 class="text-2xl font-['Space_Grotesk'] font-semibold uppercase mb-3">Privacy Policy Changes</h2>
+          <h2 class="text-xl sm:text-2xl font-['Space_Grotesk'] font-semibold uppercase mb-3 break-words">Privacy Policy Changes</h2>
           <p>
             Although most changes are likely to be minor, DYZIGN LABS LLC may change its Privacy Policy from time to time, and in DYZIGN LABS LLC's sole
             discretion. DYZIGN LABS LLC encourages visitors to frequently check this page for any changes to its Privacy Policy. Your continued use of
@@ -154,7 +170,7 @@
         </section>
 
         <section>
-          <h2 class="text-2xl font-['Space_Grotesk'] font-semibold uppercase mb-3">Contact Information</h2>
+          <h2 class="text-xl sm:text-2xl font-['Space_Grotesk'] font-semibold uppercase mb-3 break-words">Contact Information</h2>
           <p>
             If you have any privacy-related questions, please contact DYZIGN LABS LLC at
             <a class="text-black underline" href="mailto:dale@dyzignlabs.com">dale@dyzignlabs.com</a>,
@@ -166,14 +182,46 @@
     </div>
   </main>
 
-  <footer class="w-full py-12 border-t border-gray-200 bg-[#F4F7F0]">
-    <div class="flex flex-wrap justify-center items-center max-w-7xl mx-auto px-8 md:px-16 gap-8">
-      <a class="text-gray-600 hover:text-black text-sm tracking-widest uppercase" href="privacy-policy.html">Privacy Policy</a>
-      <a class="text-gray-600 hover:text-black text-sm tracking-widest uppercase" href="standard-terms.html">Standard Terms</a>
-      <a class="text-gray-600 hover:text-black text-sm tracking-widest uppercase" href="code.html#faq">FAQ</a>
-      <a class="text-gray-600 hover:text-black text-sm tracking-widest uppercase" href="sitemap.html">Site Map</a>
-      <a class="text-gray-600 hover:text-black text-sm tracking-widest uppercase" href="code.html">Home</a>
+  <footer class="w-full pt-16 pb-12 sm:pt-20 sm:pb-16 border-t border-gray-200 bg-[#F4F7F0]">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 md:px-16 grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-8">
+      <div class="flex items-center justify-center md:justify-start">
+        <a aria-label="Go to home" href="index.html"><img alt="Kinetic logo" class="h-12 w-auto" src="logo2.svg"></a>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+        <a class="text-gray-600 hover:text-black transition-colors font-['Space_Grotesk'] text-sm tracking-widest uppercase opacity-80 hover:opacity-100 py-2 min-h-[44px] inline-flex items-center" href="#">Instagram</a>
+        <a class="text-gray-600 hover:text-black transition-colors font-['Space_Grotesk'] text-sm tracking-widest uppercase opacity-80 hover:opacity-100 py-2 min-h-[44px] inline-flex items-center" href="privacy-policy.html">Privacy Policy</a>
+        <a class="text-gray-600 hover:text-black transition-colors font-['Space_Grotesk'] text-sm tracking-widest uppercase opacity-80 hover:opacity-100 py-2 min-h-[44px] inline-flex items-center" href="standard-terms.html">Standard Terms</a>
+        <a class="text-gray-600 hover:text-black transition-colors font-['Space_Grotesk'] text-sm tracking-widest uppercase opacity-80 hover:opacity-100 py-2 min-h-[44px] inline-flex items-center" href="index.html#faq">FAQ</a>
+        <a class="text-gray-600 hover:text-black transition-colors font-['Space_Grotesk'] text-sm tracking-widest uppercase opacity-80 hover:opacity-100 py-2 min-h-[44px] inline-flex items-center" href="sitemap.html">Site Map</a>
+        <a class="text-gray-600 hover:text-black transition-colors font-['Space_Grotesk'] text-sm tracking-widest uppercase opacity-80 hover:opacity-100 py-2 min-h-[44px] inline-flex items-center" href="index.html#start-project-form">Contact</a>
+      </div>
+      <div class="font-['Space_Grotesk'] text-sm tracking-widest uppercase text-gray-400 text-center md:text-right">@2026 DYZIGN LABS LLC</div>
     </div>
   </footer>
+
+  <script>
+    (function setupMobileNavMenu() {
+      var mobileMenu = document.getElementById("mobile-nav-menu");
+      var toggleButton = document.getElementById("mobile-menu-toggle");
+      var toggleIcon = document.getElementById("mobile-menu-icon");
+      if (!mobileMenu || !toggleButton || !toggleIcon) return;
+      function setMenuState(isOpen) {
+        mobileMenu.classList.toggle("hidden", !isOpen);
+        toggleButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        toggleIcon.innerHTML = isOpen ? "&times;" : "&#9776;";
+      }
+      setMenuState(false);
+      toggleButton.addEventListener("click", function () {
+        var isOpen = toggleButton.getAttribute("aria-expanded") === "true";
+        setMenuState(!isOpen);
+      });
+      mobileMenu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () { setMenuState(false); });
+      });
+      window.addEventListener("resize", function () {
+        if (window.innerWidth >= 768) setMenuState(false);
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -111,7 +111,6 @@
         .hero-text-stroke {
             -webkit-text-stroke: 1px black;
             color: transparent;
-            font-size: 40px;
         }
         .hero-gradient-heading {
             background: linear-gradient(90deg, #4c6700, #c7ff3c, #4c6700);
@@ -274,7 +273,7 @@
         }
     </style>
 </head>
-<body class="bg-background text-on-surface font-body-md" id="top">
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden" id="top">
 <!-- TopNavBar -->
 <header class="fixed top-0 w-full z-50 border-b bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md border-gray-200 dark:border-zinc-800">
 <nav class="relative flex justify-center md:justify-between items-center max-w-7xl mx-auto px-5 md:px-16 h-20">
@@ -319,7 +318,7 @@
 </header>
 <main class="pt-20">
 <!-- Hero Section -->
-<section class="relative min-h-[921px] flex flex-col justify-center items-center px-8 md:px-16 overflow-hidden bg-white">
+<section class="relative min-h-[600px] md:min-h-[800px] lg:min-h-[921px] flex flex-col justify-center items-center px-5 sm:px-8 md:px-16 overflow-hidden bg-white">
 <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-container/20 blur-[120px] rounded-full z-0"></div>
 <div class="absolute inset-0 z-0 opacity-5">
 <div class="grid grid-cols-12 h-full w-full">
@@ -328,7 +327,7 @@
 </div>
 <div class="relative z-10 text-center max-w-6xl">
 <span class="inline-block px-4 py-1 bg-black text-white text-[12px] font-label-bold tracking-widest uppercase mb-8 rounded-5px" style="">CREATIVE DESIGN AGENCY</span>
-<h1 class="font-headline-xl mb-6 flex flex-col leading-none text-[80px] md:text-[120px]" style=""><span class="font-black hero-gradient-heading" style="">BOLD WEBSITES.</span>
+<h1 class="font-headline-xl mb-6 flex flex-col leading-none text-[40px] sm:text-[56px] md:text-[80px] lg:text-[120px]" style=""><span class="font-black hero-gradient-heading" style="">BOLD WEBSITES.</span>
 <span class="hero-text-stroke font-black" style="">STRONG PERFORMANCE.</span></h1>
 <p class="font-body-lg text-secondary mx-auto mb-12 text-[21px] md:text-[21px] max-w-4xl" style="">
                 High-end digital experiences for brands that demand precision. We merge aggressive aesthetics with mathematical discipline.
@@ -341,9 +340,9 @@
 </div>
 </section>
 <!-- Expertise/Services Section (Bento Style) -->
-<section class="py-32 px-8 md:px-16 bg-[#F4F7F0]" id="tech-services">
+<section class="py-16 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 bg-[#F4F7F0]" id="tech-services">
 <div class="max-w-7xl mx-auto">
-<div class="mb-20">
+<div class="mb-10 md:mb-20">
 <h2 class="font-headline-lg text-headline-lg mb-4" style="">OUR EXPERTISE</h2>
 <div class="w-24 h-2 bg-primary-container rounded-5px"></div>
 </div>
@@ -351,7 +350,7 @@
 <!-- High Performance Development -->
 <div class="expertise-card md:col-span-2 xl:col-span-2 bg-white p-6 sm:p-8 lg:p-12 border border-outline-variant hover:border-black transition-all group rounded-5px">
 <div class="flex justify-between items-start mb-10 sm:mb-12 lg:mb-16 gap-4">
-<span class="material-symbols-outlined text-5xl text-primary-container" style="font-variation-settings: &quot;FILL&quot; 1;">terminal</span>
+<span class="material-symbols-outlined text-3xl md:text-5xl text-primary-container" style="font-variation-settings: &quot;FILL&quot; 1;">terminal</span>
 <span class="text-secondary font-label-bold text-label-bold" style="">01</span>
 </div>
 <h3 class="font-headline-md text-[clamp(1.75rem,3.5vw,2rem)] leading-[1.15] mb-4 text-black uppercase break-words" style="">WEB DESIGN &amp; DEVELOPMENT</h3>
@@ -360,7 +359,7 @@
 <!-- Visual Identity -->
 <div class="expertise-card bg-black p-6 sm:p-8 lg:p-12 text-white border border-black hover:border-primary-container transition-all group rounded-5px">
 <div class="flex justify-between items-start mb-10 sm:mb-12 lg:mb-16 gap-4">
-<span class="material-symbols-outlined text-5xl text-primary-container" style="">branding_watermark</span>
+<span class="material-symbols-outlined text-3xl md:text-5xl text-primary-container" style="">branding_watermark</span>
 <span class="text-zinc-500 font-label-bold text-label-bold" style="">02</span>
 </div>
 <h3 class="font-headline-md text-[clamp(1.75rem,3.5vw,2rem)] leading-[1.15] mb-4 uppercase break-words" style="">BRAND IDENTITY</h3>
@@ -369,7 +368,7 @@
 <!-- Digital Editorial -->
 <div class="expertise-card bg-white p-6 sm:p-8 lg:p-12 border border-outline-variant hover:border-black transition-all group rounded-5px">
 <div class="flex justify-between items-start mb-10 sm:mb-12 lg:mb-16 gap-4">
-<span class="material-symbols-outlined text-5xl text-primary-container" style="">auto_stories</span>
+<span class="material-symbols-outlined text-3xl md:text-5xl text-primary-container" style="">auto_stories</span>
 <span class="text-secondary font-label-bold text-label-bold" style="">03</span>
 </div>
 <h3 class="font-headline-md text-[clamp(1.75rem,3.5vw,2rem)] leading-[1.15] mb-4 uppercase break-words" style="">SEO</h3>
@@ -378,7 +377,7 @@
 <!-- UI/UX Systems -->
 <div class="expertise-card md:col-span-2 xl:col-span-2 bg-primary-container p-6 sm:p-8 lg:p-12 border border-outline-variant group rounded-5px">
 <div class="flex justify-between items-start mb-10 sm:mb-12 lg:mb-16 gap-4">
-<span class="material-symbols-outlined text-5xl text-black" style="">grid_view</span>
+<span class="material-symbols-outlined text-3xl md:text-5xl text-black" style="">grid_view</span>
 <span class="text-black font-label-bold text-label-bold" style="">04</span>
 </div>
 <h3 class="font-headline-md text-[clamp(1.75rem,3.5vw,2rem)] leading-[1.15] mb-4 text-black uppercase break-words" style="">ECOMMERCE DEVELOPMENT</h3>
@@ -387,7 +386,7 @@
 <!-- Web Hosting and Maintenance -->
 <div class="expertise-card md:col-span-2 xl:col-span-2 bg-black p-6 sm:p-8 lg:p-12 text-white border border-black hover:border-primary-container transition-all group rounded-5px">
 <div class="flex justify-between items-start mb-10 sm:mb-12 lg:mb-16 gap-4">
-<span class="material-symbols-outlined text-5xl text-primary-container" style="">dns</span>
+<span class="material-symbols-outlined text-3xl md:text-5xl text-primary-container" style="">dns</span>
 <span class="text-zinc-500 font-label-bold text-label-bold" style="">05</span>
 </div>
 <h3 class="font-headline-md text-[clamp(1.75rem,3.5vw,2rem)] leading-[1.15] mb-4 uppercase break-words" style="">WEB HOSTING AND MAINTENANCE</h3>
@@ -396,7 +395,7 @@
 <!-- Conversion Copywriting -->
 <div class="expertise-card bg-white p-6 sm:p-8 lg:p-12 border border-outline-variant hover:border-black transition-all group rounded-5px">
 <div class="flex justify-between items-start mb-10 sm:mb-12 lg:mb-16 gap-4">
-<span class="material-symbols-outlined text-5xl text-primary-container" style="">edit_note</span>
+<span class="material-symbols-outlined text-3xl md:text-5xl text-primary-container" style="">edit_note</span>
 <span class="text-secondary font-label-bold text-label-bold" style="">06</span>
 </div>
 <h3 class="font-headline-md text-[clamp(1.75rem,3.5vw,2rem)] leading-[1.15] mb-4 text-black uppercase break-words" style="">CONVERSION COPYWRITING</h3>
@@ -406,7 +405,7 @@
 </div>
 </section>
 <!-- Selected Works (Asymmetric Layout) -->
-<section class="py-32 px-8 md:px-16 bg-white overflow-hidden" id="process">
+<section class="py-16 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 bg-white overflow-hidden" id="process">
 <div class="max-w-7xl mx-auto">
 <div class="flex justify-between items-end mb-20">
 <div>
@@ -417,9 +416,9 @@
                     All Projects <span class="material-symbols-outlined" style="">north_east</span>
 </a>
 </div>
-<div class="space-y-32">
+<div class="space-y-16 md:space-y-32">
 <!-- Project 1 -->
-<div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
 <div class="md:col-span-7">
 <div class="selected-work-frame relative overflow-hidden aspect-[16/10] rounded-5px">
 <video aria-label="Close-up of a futuristic high-tech interface on a tablet with vibrant neon green elements and dark data visualization graphs" autoplay class="selected-work-media w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 cursor-pointer" loop muted playsinline>
@@ -438,7 +437,7 @@
 </div>
 </div>
 <!-- Project 2 -->
-<div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
 <div class="md:col-span-5 order-2 md:order-1 md:pr-12">
 <span class="text-label-bold font-label-bold text-primary mb-4 block uppercase" style="">Fashion / E-Commerce</span>
 <h3 class="font-headline-lg text-headline-lg mb-6 leading-tight" style="">CHROME WEARABLES</h3>
@@ -457,15 +456,15 @@
 </div>
 </section>
 <!-- Pricing Section -->
-<section class="py-48 px-8 md:px-16 bg-[#F4F7F0]" id="pricing">
+<section class="py-20 md:py-32 lg:py-48 px-5 sm:px-8 md:px-16 bg-[#F4F7F0]" id="pricing">
 <div class="max-w-7xl mx-auto">
-<div class="text-center mb-24">
+<div class="text-center mb-12 md:mb-24">
 <h2 class="font-headline-lg text-headline-lg uppercase" style="">Transparent Pricing</h2>
 <p class="text-secondary font-body-md max-w-xl mx-auto mt-4" style="">Predictable investment for world-class design and development. No hidden fees, just performance.</p>
 </div>
-<div class="grid grid-cols-1 lg:grid-cols-3 items-center gap-4">
+<div class="grid grid-cols-1 lg:grid-cols-3 items-center gap-6 lg:gap-4">
 <!-- Standard -->
-<div class="pricing-card bg-white p-12 border border-gray-200 rounded-5px shadow-sm order-2 lg:order-1">
+<div class="pricing-card bg-white p-6 sm:p-8 lg:p-12 border border-gray-200 rounded-5px shadow-sm order-2 lg:order-1">
 <h3 class="font-headline-md text-headline-md text-primary mb-2" style="">SPRINT</h3>
 <div class="text-4xl font-black mb-8" style="">$2.5k<span class="text-sm font-normal text-secondary" style="">/project</span></div>
 <ul class="space-y-4 mb-12">
@@ -477,7 +476,7 @@
 <a class="block w-full border-2 border-black py-4 font-label-bold text-label-bold uppercase hover:bg-black hover:text-white transition-all rounded-5px text-center" href="#start-project-form" style="">Contact Us</a>
 </div>
 <!-- Pro (Studio) - Elevated and Larger -->
-<div class="pricing-card bg-white p-14 border-2 border-black rounded-5px shadow-2xl z-10 lg:-mt-12 lg:-mb-12 order-1 lg:order-2 relative">
+<div class="pricing-card bg-white p-6 sm:p-8 lg:p-14 border-2 border-black rounded-5px shadow-2xl z-10 lg:-mt-12 lg:-mb-12 order-1 lg:order-2 relative">
 <div class="absolute top-6 right-6 bg-primary-container text-black font-label-bold text-[10px] py-1 px-4 rounded-5px uppercase border border-black/10" style="">Most Popular</div>
 <h3 class="font-headline-md text-headline-md text-primary mb-2" style="">STUDIO</h3>
 <div class="text-5xl font-black mb-8" style="">$5k<span class="text-sm font-normal text-secondary" style="">/project</span></div>
@@ -490,7 +489,7 @@
 <a class="block w-full bg-primary-container text-black py-5 font-label-bold text-label-bold uppercase hover:bg-black hover:text-white transition-all rounded-5px shadow-lg text-center" href="#start-project-form" style="">Contact Us</a>
 </div>
 <!-- Enterprise (Custom) -->
-<div class="pricing-card bg-white p-12 border border-gray-200 rounded-5px shadow-sm order-3">
+<div class="pricing-card bg-white p-6 sm:p-8 lg:p-12 border border-gray-200 rounded-5px shadow-sm order-3">
 <h3 class="font-headline-md text-headline-md text-primary mb-2" style="">CUSTOM</h3>
 <div class="text-4xl font-black mb-8" style="">Quote</div>
 <ul class="space-y-4 mb-12">
@@ -505,8 +504,8 @@
 </div>
 </section>
 <!-- Contact Section -->
-<section class="py-32 px-8 md:px-16 bg-white" id="start-project-form">
-<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24">
+<section class="py-16 md:py-24 lg:py-32 px-5 sm:px-8 md:px-16 bg-white" id="start-project-form">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 lg:gap-24">
 <div>
 <h2 class="font-headline-lg text-headline-lg uppercase mb-6" style="">Let's Build Something<br><span class="text-primary-container bg-black px-2 rounded-5px remarkable-typewriter" id="remarkable-typewriter" data-text="REMARKABLE" style="">REMARKABLE</span></h2>
 <p class="text-body-lg text-secondary mb-12" style="">Have a project in mind? We're currently accepting new clients. Let's discuss your vision.</p>
@@ -531,7 +530,7 @@
 </div>
 </div>
 </div>
-<div class="bg-white border-2 border-black p-12 rounded-5px">
+<div class="bg-white border-2 border-black p-6 sm:p-8 md:p-12 rounded-5px">
 <form class="space-y-6">
 <div class="space-y-2">
 <label class="font-label-bold text-label-bold uppercase" style="">Full Name</label>
@@ -553,7 +552,7 @@
 </div>
 </section>
 <!-- FAQ Section -->
-<section class="pt-32 pb-48 px-8 md:px-16 bg-[#F4F7F0] relative" id="faq">
+<section class="pt-16 md:pt-24 lg:pt-32 pb-24 md:pb-36 lg:pb-48 px-5 sm:px-8 md:px-16 bg-[#F4F7F0] relative" id="faq">
 <div class="max-w-4xl mx-auto">
 <div class="mb-20 text-center">
 <h2 class="font-headline-lg text-headline-lg mb-4 uppercase" style="">Frequently Asked Questions</h2>
@@ -562,41 +561,41 @@
 <div class="space-y-4" id="faq-accordion">
 <!-- FAQ Item 1 -->
 <details class="group bg-white border border-outline-variant rounded-5px overflow-hidden transition-all duration-300" style="">
-<summary class="flex justify-between items-center p-8 cursor-pointer list-none" style="">
+<summary class="flex justify-between items-center p-6 md:p-8 cursor-pointer list-none gap-4" style="">
 <h4 class="font-headline-md text-[20px] uppercase text-black leading-tight" style="">How long does a typical project take?</h4>
 <span class="material-symbols-outlined expand-icon transition-transform duration-300 text-black" style="">expand_more</span>
 </summary>
-<div class="faq-content px-8">
+<div class="faq-content px-6 md:px-8">
 <p class="faq-content-inner text-body-md text-secondary border-t border-outline-variant pt-6 pb-8" style="">Our Sprint packages deliver in 7-10 days, while custom Studio projects typically span 4-8 weeks depending on the complexity of the design system and backend integrations.</p>
 </div>
 </details>
 <!-- FAQ Item 2 -->
 <details class="group bg-white border border-outline-variant rounded-5px overflow-hidden transition-all duration-300" style="">
-<summary class="flex justify-between items-center p-8 cursor-pointer list-none" style="">
+<summary class="flex justify-between items-center p-6 md:p-8 cursor-pointer list-none gap-4" style="">
 <h4 class="font-headline-md text-[20px] uppercase text-black leading-tight" style="">What is your tech stack?</h4>
 <span class="material-symbols-outlined expand-icon transition-transform duration-300 text-black" style="">expand_more</span>
 </summary>
-<div class="faq-content px-8">
+<div class="faq-content px-6 md:px-8">
 <p class="faq-content-inner text-body-md text-secondary border-t border-outline-variant pt-6 pb-8" style="">We specialize in React, Next.js, and Tailwind CSS for frontend. For CMS, we integrate with Headless solutions like Contentful or Sanity to ensure maximum performance and scalability.</p>
 </div>
 </details>
 <!-- FAQ Item 3 -->
 <details class="group bg-white border border-outline-variant rounded-5px overflow-hidden transition-all duration-300" style="">
-<summary class="flex justify-between items-center p-8 cursor-pointer list-none" style="">
+<summary class="flex justify-between items-center p-6 md:p-8 cursor-pointer list-none gap-4" style="">
 <h4 class="font-headline-md text-[20px] uppercase text-black leading-tight" style="">Do you offer payment plans?</h4>
 <span class="material-symbols-outlined expand-icon transition-transform duration-300 text-black" style="">expand_more</span>
 </summary>
-<div class="faq-content px-8">
+<div class="faq-content px-6 md:px-8">
 <p class="faq-content-inner text-body-md text-secondary border-t border-outline-variant pt-6 pb-8" style="">Yes. We typically structure payments as 50% upfront and 50% upon delivery for smaller projects. For enterprise-level work, we offer milestone-based billing to suit your budget.</p>
 </div>
 </details>
 <!-- FAQ Item 4 -->
 <details class="group bg-white border border-outline-variant rounded-5px overflow-hidden transition-all duration-300" style="">
-<summary class="flex justify-between items-center p-8 cursor-pointer list-none" style="">
+<summary class="flex justify-between items-center p-6 md:p-8 cursor-pointer list-none gap-4" style="">
 <h4 class="font-headline-md text-[20px] uppercase text-black leading-tight" style="">Will my site be SEO optimized?</h4>
 <span class="material-symbols-outlined expand-icon transition-transform duration-300 text-black" style="">expand_more</span>
 </summary>
-<div class="faq-content px-8">
+<div class="faq-content px-6 md:px-8">
 <p class="faq-content-inner text-body-md text-secondary border-t border-outline-variant pt-6 pb-8" style="">Absolutely. SEO isn't an afterthought for us. We implement semantic HTML, lightning-fast load times, and structured data schemas to ensure your brand ranks effectively from day one.</p>
 </div>
 </details>
@@ -607,12 +606,12 @@
 </div>
 </div>
 <!-- Overlapping Visual Element -->
-<div class="relative mt-12 w-[calc(100%-32px)] max-w-5xl mx-auto z-20 md:absolute md:bottom-0 md:left-1/2 md:mt-0 md:-translate-x-1/2 md:translate-y-1/2 md:w-[calc(100%-48px)]">
-<div class="bg-primary-container p-8 md:p-12 border-2 border-black rounded-5px flex flex-col md:flex-row items-center justify-between gap-8 group cursor-pointer overflow-hidden relative">
+<div class="relative mt-12 w-[calc(100%-24px)] sm:w-[calc(100%-32px)] max-w-5xl mx-auto z-20 md:absolute md:bottom-0 md:left-1/2 md:mt-0 md:-translate-x-1/2 md:translate-y-1/2 md:w-[calc(100%-48px)]">
+<div class="bg-primary-container p-6 sm:p-8 md:p-12 border-2 border-black rounded-5px flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 group cursor-pointer overflow-hidden relative">
 <div class="absolute -right-12 -top-12 w-48 h-48 bg-black/5 rounded-full blur-3xl group-hover:bg-black/10 transition-colors"></div>
 <div class="relative z-10 flex-1">
 <span class="inline-block bg-black text-primary-container px-3 py-1 text-[10px] font-label-bold uppercase tracking-widest mb-4 rounded-5px" style="">The Next Move</span>
-<h3 class="font-headline-lg text-[32px] md:text-[40px] text-black leading-tight mb-2 uppercase" style="">Ready to start your Kinetic journey?</h3>
+<h3 class="font-headline-lg text-[24px] sm:text-[28px] md:text-[40px] text-black leading-tight mb-2 uppercase" style="">Ready to start your Kinetic journey?</h3>
 <p class="text-black/70 font-body-md max-w-lg" style="">Our team is ready to deploy. Explore our social channels or jump straight to a discovery call below.</p>
 </div>
 <div class="relative z-10 flex flex-col items-center justify-center gap-4">
@@ -626,8 +625,8 @@
 </section>
 </main>
 <!-- Footer -->
-<footer class="w-full pt-48 pb-16 border-t border-gray-200 dark:border-zinc-800 bg-[#F4F7F0] dark:bg-zinc-900">
-<div class="max-w-7xl mx-auto px-8 md:px-16 grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-8">
+<footer class="w-full pt-24 md:pt-36 lg:pt-48 pb-12 md:pb-16 border-t border-gray-200 dark:border-zinc-800 bg-[#F4F7F0] dark:bg-zinc-900">
+<div class="max-w-7xl mx-auto px-5 sm:px-8 md:px-16 grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-8">
 <div class="flex items-center justify-center md:justify-start" style="">
 <a aria-label="Go to top of page" href="#top">
 <img alt="Kinetic logo" class="h-12 w-auto" src="logo2.svg">
@@ -637,9 +636,9 @@
 <a class="text-gray-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors duration-200 font-['Space_Grotesk'] text-sm tracking-widest uppercase opacity-80 hover:opacity-100 transition-opacity" href="#" style="">Instagram</a>
 <a class="text-gray-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors duration-200 font-['Space_Grotesk'] text-sm tracking-widest uppercase opacity-80 hover:opacity-100 transition-opacity" href="privacy-policy.html" style="">Privacy Policy</a>
 <a class="text-gray-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors duration-200 font-['Space_Grotesk'] text-sm tracking-widest uppercase opacity-80 hover:opacity-100 transition-opacity" href="standard-terms.html" style="">Standard Terms</a>
-<a class="text-gray-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors duration-200 font-['Space_Grotesk'] text-sm tracking-widest uppercase opacity-80 hover:opacity-100 transition-opacity" href="code.html#faq" style="">FAQ</a>
+<a class="text-gray-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors duration-200 font-['Space_Grotesk'] text-sm tracking-widest uppercase opacity-80 hover:opacity-100 transition-opacity" href="#faq" style="">FAQ</a>
 <a class="text-gray-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors duration-200 font-['Space_Grotesk'] text-sm tracking-widest uppercase opacity-80 hover:opacity-100 transition-opacity" href="sitemap.html" style="">Site Map</a>
-<a class="text-gray-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors duration-200 font-['Space_Grotesk'] text-sm tracking-widest uppercase opacity-80 hover:opacity-100 transition-opacity" href="#" style="">Contact</a>
+<a class="text-gray-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors duration-200 font-['Space_Grotesk'] text-sm tracking-widest uppercase opacity-80 hover:opacity-100 transition-opacity" href="#start-project-form" style="">Contact</a>
 </div>
 <div class="font-['Space_Grotesk'] text-sm tracking-widest uppercase text-gray-400 text-center md:text-right" style="">
             @2026 DYZIGN LABS LLC</div>
