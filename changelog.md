@@ -2,6 +2,7 @@
 
 ### 2026-04-23
 
+- Reduced excessive space between the hero CTA and `OUR EXPERTISE` on smaller screens in `index.html` by removing mobile viewport-forced hero min-height (`min-h-[calc(100svh-76px)]` and `sm:min-h-[calc(100svh-76px)]`).
 - Disabled scroll-reveal animation for the contact form `send` icon in `index.html` by marking it `no-scroll-animate` and skipping observer animation for that class.
 - Updated `#remarkable-typewriter` styling in `index.html` by adding `text-align: center` to `.remarkable-typewriter` so the animated badge text stays centered in its pill.
 - Removed the hero pre-title badge (`CREATIVE DESIGN AGENCY`) from `index.html` by deleting the span inside the hero content container.
