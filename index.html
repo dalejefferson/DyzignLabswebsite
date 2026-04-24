@@ -252,6 +252,7 @@
             display: inline-block;
             min-width: 11ch;
             min-height: 1.3em;
+            text-align: center;
             white-space: nowrap;
             overflow: hidden;
             border-right: 2px solid #c7ff3c;
@@ -568,7 +569,7 @@
 <textarea class="w-full bg-[#F4F7F0] border-b-2 border-black p-4 focus:border-primary-container outline-none transition-colors border-t-0 border-x-0 rounded-5px" placeholder="Tell us about your project..." rows="4"></textarea>
 </div>
 <button class="w-full bg-primary-container text-black font-label-bold text-label-bold uppercase py-5 flex justify-center items-center gap-3 hover:bg-black hover:text-white transition-all scale-95 active:scale-90 rounded-5px" style="">
-                        Submit Inquiry <span class="material-symbols-outlined" style="">send</span>
+                        Submit Inquiry <span class="material-symbols-outlined no-scroll-animate" style="">send</span>
 </button>
 </form>
 </div>
@@ -822,80 +823,6 @@
             moveIndicatorTo(activeItem);
         })();
 
-        (function setupFaqHoverAccordion() {
-            var faqAccordion = document.getElementById("faq-accordion");
-
-            if (!faqAccordion) {
-                return;
-            }
-
-            var faqItems = faqAccordion.querySelectorAll("details");
-            var ANIMATION_DURATION_MS = 420;
-
-            function getContent(item) {
-                return item.querySelector(".faq-content");
-            }
-
-            function animateOpen(item) {
-                var content = getContent(item);
-                if (!content) {
-                    item.open = true;
-                    return;
-                }
-
-                item.open = true;
-                content.style.maxHeight = "0px";
-                void content.offsetHeight;
-                content.style.transition = "max-height " + ANIMATION_DURATION_MS + "ms cubic-bezier(0.22, 1, 0.36, 1)";
-                content.style.maxHeight = content.scrollHeight + "px";
-
-                window.setTimeout(function () {
-                    if (item.open) {
-                        content.style.maxHeight = "none";
-                    }
-                }, ANIMATION_DURATION_MS);
-            }
-
-            function animateClose(item) {
-                var content = getContent(item);
-                if (!content || !item.open) {
-                    item.open = false;
-                    return;
-                }
-
-                content.style.maxHeight = content.scrollHeight + "px";
-                void content.offsetHeight;
-                content.style.transition = "max-height " + ANIMATION_DURATION_MS + "ms cubic-bezier(0.22, 1, 0.36, 1)";
-                content.style.maxHeight = "0px";
-
-                window.setTimeout(function () {
-                    item.open = false;
-                    content.style.maxHeight = "";
-                    content.style.transition = "";
-                }, ANIMATION_DURATION_MS);
-            }
-
-            faqItems.forEach(function (item) {
-                var content = getContent(item);
-                if (content) {
-                    content.style.maxHeight = "0px";
-                }
-
-                item.addEventListener("mouseenter", function () {
-                    faqItems.forEach(function (otherItem) {
-                        if (otherItem !== item) {
-                            animateClose(otherItem);
-                        }
-                    });
-                    animateOpen(item);
-                });
-
-                item.addEventListener("mouseleave", function () {
-                    animateClose(item);
-                });
-            });
-        })();
-
         (function setupScrollSlideInAnimations() {
             var animatedElements = document.querySelectorAll(
                 [
@@ -947,6 +874,11 @@
             );
 
             animatedElements.forEach(function (element) {
+                if (element.classList.contains("no-scroll-animate")) {
+                    element.classList.add("scroll-slide-in-visible");
+                    return;
+                }
+
                 element.classList.add("scroll-slide-in");
                 observer.observe(element);
             });

@@ -2,6 +2,8 @@
 
 ### 2026-04-23
 
+- Disabled scroll-reveal animation for the contact form `send` icon in `index.html` by marking it `no-scroll-animate` and skipping observer animation for that class.
+- Updated `#remarkable-typewriter` styling in `index.html` by adding `text-align: center` to `.remarkable-typewriter` so the animated badge text stays centered in its pill.
 - Removed the hero pre-title badge (`CREATIVE DESIGN AGENCY`) from `index.html` by deleting the span inside the hero content container.
 - Removed the blank gap under the fixed navbar in `index.html` by zeroing the hero section's top padding (`pt-0 sm:pt-0 md:pt-0`) while preserving `main` offset (`pt-20`) and existing bottom spacing.
 - Fixed hero headline rendering in `index.html` so `STRONG PERFORMANCE.` is now solid-filled (not hollow outlined), while hero title sizing/spacing was normalized to responsive clamps and clipping was prevented by removing hero-section `overflow-hidden`.
@@ -104,3 +106,4 @@
 - Restored hero overlay transparency in `index.html` by changing solid `bg-white` to `bg-white/50`.
 - Replaced the hero background video source in `index.html` from `herovidback.mp4` to `move.mp4`.
 - Removed the hero background video element from `index.html`, restoring a non-video hero background layer.
+- Removed FAQ hover-open behavior in `index.html` by deleting the `setupFaqHoverAccordion` mouseenter/mouseleave script so FAQ panels now open only on click.
