@@ -1,6 +1,7 @@
 ## Changelog
 
 ### 2026-04-23
+
 - Removed the hero pre-title badge (`CREATIVE DESIGN AGENCY`) from `index.html` by deleting the span inside the hero content container.
 - Removed the blank gap under the fixed navbar in `index.html` by zeroing the hero section's top padding (`pt-0 sm:pt-0 md:pt-0`) while preserving `main` offset (`pt-20`) and existing bottom spacing.
 - Fixed hero headline rendering in `index.html` so `STRONG PERFORMANCE.` is now solid-filled (not hollow outlined), while hero title sizing/spacing was normalized to responsive clamps and clipping was prevented by removing hero-section `overflow-hidden`.
@@ -96,3 +97,10 @@
 - Updated the hero `BOLD WEBSITES.` gradient animation in `index.html` to a smoother left-to-right flow with expanded color stops, a wider gradient band, and gentler easing.
 - Reversed the hero `BOLD WEBSITES.` gradient animation direction in `index.html` so it now flows right-to-left.
 - Tuned the hero `BOLD WEBSITES.` gradient animation in `index.html` for a seamless nonstop loop by switching to a linear cycle, normalized background sizing, and a full off-canvas travel range.
+- Added `herovidback.mp4` as a full-bleed hero background video layer in `index.html` (autoplay, muted, loop, playsinline).
+- Added a soft white overlay above the video to preserve heading/CTA readability while keeping animated motion in the hero background.
+- Increased hero video overlay opacity in `index.html` from `bg-white/75` to `bg-white/90` for stronger text contrast.
+- Removed hero overlay transparency in `index.html` by changing `bg-white/90` to solid `bg-white`.
+- Restored hero overlay transparency in `index.html` by changing solid `bg-white` to `bg-white/50`.
+- Replaced the hero background video source in `index.html` from `herovidback.mp4` to `move.mp4`.
+- Removed the hero background video element from `index.html`, restoring a non-video hero background layer.
