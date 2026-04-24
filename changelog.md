@@ -1,6 +1,7 @@
 ## Changelog
 
 ### 2026-04-23
+- Fixed hero headline rendering in `index.html` so `STRONG PERFORMANCE.` is now solid-filled (not hollow outlined), while hero title sizing/spacing was normalized to responsive clamps and clipping was prevented by removing hero-section `overflow-hidden`.
 - Fixed distorted interior lines on the hero `STRONG PERFORMANCE.` text in `index.html` by updating `.hero-text-stroke` to use a white fill (`color` + `-webkit-text-fill-color`) with the existing black stroke for clean outline rendering.
 - Fixed the landing page hero in `index.html` so it scales cleanly across mobile, tablet, and desktop instead of using oversized fixed desktop typography.
 - Replaced the hero's hard-coded `112px` title sizing and overly tall section height with fluid `clamp(...)` text sizing, tighter responsive spacing, and viewport-aware minimum heights.
