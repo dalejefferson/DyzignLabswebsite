@@ -1,6 +1,8 @@
 ## Changelog
 
 ### 2026-04-23
+- Removed the hero pre-title badge (`CREATIVE DESIGN AGENCY`) from `index.html` by deleting the span inside the hero content container.
+- Removed the blank gap under the fixed navbar in `index.html` by zeroing the hero section's top padding (`pt-0 sm:pt-0 md:pt-0`) while preserving `main` offset (`pt-20`) and existing bottom spacing.
 - Fixed hero headline rendering in `index.html` so `STRONG PERFORMANCE.` is now solid-filled (not hollow outlined), while hero title sizing/spacing was normalized to responsive clamps and clipping was prevented by removing hero-section `overflow-hidden`.
 - Fixed distorted interior lines on the hero `STRONG PERFORMANCE.` text in `index.html` by updating `.hero-text-stroke` to use a white fill (`color` + `-webkit-text-fill-color`) with the existing black stroke for clean outline rendering.
 - Fixed the landing page hero in `index.html` so it scales cleanly across mobile, tablet, and desktop instead of using oversized fixed desktop typography.
