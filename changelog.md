@@ -2,6 +2,9 @@
 
 ### 2026-04-23
 
+- Updated desktop header alignment across `index.html`, `case-studies.html`, `privacy-policy.html`, `standard-terms.html`, and `sitemap.html` so the navbar consistently follows a 3-zone layout (logo left, nav centered, `Get a Free Quote` CTA right) matching the provided reference.
+- Replaced the previous desktop absolute-position CTA wrapper in shared headers with grid-based alignment to keep nav centering stable across pages and viewport widths.
+
 - Reduced excessive space between the hero CTA and `OUR EXPERTISE` on smaller screens in `index.html` by removing mobile viewport-forced hero min-height (`min-h-[calc(100svh-76px)]` and `sm:min-h-[calc(100svh-76px)]`).
 - Disabled scroll-reveal animation for the contact form `send` icon in `index.html` by marking it `no-scroll-animate` and skipping observer animation for that class.
 - Updated `#remarkable-typewriter` styling in `index.html` by adding `text-align: center` to `.remarkable-typewriter` so the animated badge text stays centered in its pill.
