@@ -391,17 +391,7 @@
             @2026 DYZIGN LABS LLC</div>
 </div>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
 <script>
-        if (window.gsap) {
-            gsap.to(".hero-gradient-heading", {
-                backgroundPosition: "-200% 50%",
-                duration: 6,
-                ease: "none",
-                repeat: -1
-            });
-        }
-
         (function setupRemarkableTypewriter() {
             var target = document.getElementById("remarkable-typewriter");
 
@@ -416,31 +406,12 @@
             var restartDelay = 350;
             var index = 0;
 
-            target.textContent = "";
-            var textNode = document.createTextNode("\u00A0");
-            target.appendChild(textNode);
-
-            var caret = document.createElement("span");
-            caret.className = "typewriter-caret";
-            caret.id = "typewriter-caret";
-            caret.textContent = "\u200B";
-            caret.style.height = "1.2em";
-            target.appendChild(caret);
-
-            if (window.gsap) {
-                window.gsap.to(caret, {
-                    opacity: 0,
-                    repeat: -1,
-                    yoyo: true,
-                    duration: 0.45,
-                    ease: "steps(1)"
-                });
-            }
+            target.textContent = "\u00A0";
 
             function typeForward() {
                 if (index < fullText.length) {
                     index += 1;
-                    textNode.textContent = fullText.slice(0, index);
+                    target.textContent = fullText.slice(0, index);
                     setTimeout(typeForward, typeDelay);
                     return;
                 }
@@ -451,7 +422,7 @@
             function typeBackward() {
                 if (index > 0) {
                     index -= 1;
-                    textNode.textContent = index > 0 ? fullText.slice(0, index) : "\u00A0";
+                    target.textContent = index > 0 ? fullText.slice(0, index) : "\u00A0";
                     setTimeout(typeBackward, deleteDelay);
                     return;
                 }
@@ -515,35 +486,16 @@
 
             function moveIndicatorTo(target) {
                 if (!target || !desktopMediaQuery.matches) {
-                    if (window.gsap) {
-                        gsap.to(indicator, { opacity: 0, duration: 0.18, ease: "power2.out", overwrite: true });
-                    } else {
-                        indicator.style.opacity = "0";
-                    }
+                    indicator.style.opacity = "0";
                     return;
                 }
 
                 var left = target.offsetLeft;
                 var width = target.offsetWidth;
 
-                if (window.gsap) {
-                    gsap.to(indicator, {
-                        scaleX: width,
-                        x: left,
-                        opacity: 1,
-                        duration: 0.26,
-                        ease: "power2.out",
-                        overwrite: true
-                    });
-                } else {
-                    indicator.style.width = width + "px";
-                    indicator.style.transform = "translateX(" + left + "px)";
-                    indicator.style.opacity = "1";
-                }
-            }
-
-            if (window.gsap) {
-                gsap.set(indicator, { scaleX: 0, opacity: 0 });
+                indicator.style.width = width + "px";
+                indicator.style.transform = "translateX(" + left + "px)";
+                indicator.style.opacity = "1";
             }
 
             navItems.forEach(function (item) {
